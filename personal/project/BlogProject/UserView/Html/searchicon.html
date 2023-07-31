@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rebeccapurple;
+        }
+        .nav_input_sec{
+          display: flex;
+            position: relative;
+        }
+        .nav_input_sec .search_icon{
+            display: grid;
+            position: absolute;
+            justify-content: center;
+            right: 0rem;
+            background-color: aliceblue;
+          
+        }
+        input{
+            width: 0;
+            padding: 0;
+        }
+        .nav_input_sec:hover .search_section input{
+            width: 25rem;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <aside class="nav_input_sec">
+        <div class="search_section">
+            <a href=""><input type="search" placeholder="search"></a>
+        </div>
+       <div class="search_icon">
+        <a href=""><i class="fa fa-search"></i></a>
+       </div>
+    </aside>
+</body>
+</html>

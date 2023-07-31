@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./../Css/nav.css">
+    <link rel="stylesheet" href="./../Css/image.css">
+</head>
+
+<body>
+    <header>
+        <nav id="navigation_bar">
+            <input type="checkbox" name="" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fa fa-navicon"></i>
+                Menu
+            </label>
+            <ul class="menu_bar" id="menu_bar">
+                <li><a href="">HOME</a></li>
+                <li><a href="">ARCHIEVE</a></li>
+                <li><a href="">CATEGORY</a></li>
+                <li><a href="">POST-TYPES <i class="fa fa-chevron-down"></i></a>
+                    <div id="menu_bar_list">
+                        <ul>
+                            <li> <a href="">Standard Post</a></li>
+                            <li><a href="">Image Post</a></li>
+                            <li><a href="">GalleryPost</a></li>
+                            <li><a href="">Video Post</a></li>
+                            <li><a href="">Audio Post</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="">ABOUT</a></li>
+                <li><a href="">CONTACT</a></li>
+            </ul>
+            <aside class="nav_input_sec">
+                <div class="search_section">
+                    <a href=""><input type="search" placeholder="search" id="search"></a>
+                </div>
+                <div class="search_icon">
+                    <button type="button"><i class="fa fa-search"
+                            onclick="document.getElementById('search').style.display ='inline'">
+                        </i></button>
+                </div>
+            </aside>
+        </nav>
+    </header>
+    <!-- first_section_start -->
+    <section class="image_block">
+        <!-- first_image_block_start -->
+        <div class="left_side_image">
+            <div>
+                <div class="combo_image_title">
+                    <input type="file" id="left_image">
+                    <button id="left_image_click" class="left_image_click">
+                        <label for="left_image"><i class="fa fa-upload fa-2x"></i>Drop image here
+                        </label>
+                    </button>
+                    <textarea name="title" id="left_image_title" placeholder="write about the image"></textarea>
+                </div>
+                <div class="left_first_image_button">
+                    <button><label for="left_image_click">Submit</label></button>
+                    <button><label for="left_image_title">Submit</label></button>
+                </div>
+            </div>
+            <div class="top_post_details">
+                <span><input type="text" id="left_image_text" required placeholder="mark wiens"></span>
+                <span><input type="date" id="left_image_date" required></span>
+                <span><input type="text" id="left_image_Comment" required placeholder="write your comment"></span>
+            </div>
+            <div class="top_post_details">
+                <button><label for="left_image_text">Submit</label></button>
+                <button><label for="left_image_date">Submit</label></button>
+                <button><label for="left_image_Comment">Submit</label></button>
+            </div>
+        </div>
+        <!-- first_image_block_end -->
+        <!-- second_image_block_start -->
+        <div class="right_side_img">
+            <div class="right_side_firstimg">
+                <div class="combo_image_title">
+                    <input type="file" id="Right_first_image">
+                    <button id="Right_first_image_click" class="right_image_click">
+                        <label for="Right_first_image"><i i class="fa fa-upload"></i>Drop image here
+                        </label>
+                    </button>
+                    <textarea name="Right_first_image_title" id="Right_first_image_title"
+                        placeholder="write image title">
+                 </textarea>
+                </div>
+                <div class="Right_image_button">
+                    <button class="submit_button"><label for="Right_first_image_click">Submit</label></button>
+                    <button><label for="Right_first_image_title">Submit</label></button>
+                </div>
+                <div class="top_post_details">
+                    <span><input type="text" id="Right_first_image_text" required placeholder="mark wiens"></span>
+                    <span><input type="date" id="Right_first_image_date" required></span>
+                    <span><input type="text" id="Right_first_image_Comment" required placeholder="write your comment">
+                    </span>
+                </div>
+                <div class="top_post_details">
+                    <button><label for="Right_first_image_text">Submit</label></button>
+                    <button><label for="Right_first_image_date">Submit</label></button>
+                    <button><label for="Right_first_image_Comment">Submit</label></button>
+                </div>
+            </div>
+            <div class="right_side_secondimg">
+                <div class="combo_image_title">
+                    <input type="file" id="Right_second_image">
+                    <button id="Right_second_image_click" class="right_image_click">
+                        <label for="Right_second_image">
+                            <i i class="fa fa-upload "></i>
+                            Drop image here
+                        </label>
+                    </button>
+                    <textarea name="" id="Right_second_image_title" placeholder="write page title">
+                    </textarea>
+                </div>
+                <div class="Right_image_button">
+                    <button class="submit_button"><label for="Right_second_image_click">Submit</label></button>
+                    <button><label for="Right_second_image_title">Submit</label></button>
+                </div>
+                <div class="top_post_details">
+                    <span><input type="text" id="Right_second_image_text" required placeholder="mark wiens"></span>
+                    <span><input type="date" id="Right_second_image_date" required></span>
+                    <span><input type="text" id="Right_second_image_Comment" required placeholder="write your comment">
+                    </span>
+                </div>
+                <div class="top_post_details">
+                    <button><label for="Right_second_image_text">Submit</label></button>
+                    <button><label for="Right_second_image_date">Submit</label></button>
+                    <button><label for="Right_second_image_Comment">Submit</label></button>
+                </div>
+            </div>
+        </div>
+        <!-- second_image_block_end -->
+        <!-- title section  -->
+        <div class="news-tracker-wrap">
+            <input type="text" placeholder="news_tracker_title" id="news_tracker_title">
+            <button><label for="news_tracker_title">Submit</label></button>
+            <textarea name="" id="news_description" placeholder="news_tracker_description"></textarea>
+            <button> <label for="news_tracker_description">Submit</label></button>
+        </div>
+        <!-- title section end  -->
+    </section>
+    <!-- first_section_end-->
+    <!-- second_block_start -->
+    <section class="latest-post-area_pb-120">
+        <!-- left_side_image_block_start -->
+        <section>
+            <!-- Latest News start  -->
+            <section class="latest-post-area_pb-120_first_block">
+                <!-- title_section -->
+                <div class="latest-post-wrap">
+                    <input type="text" id="latest_Title_name1" placeholder="latest_Title">
+                    <button><label for="latest_Title_name1">submit</label></button>
+                </div>
+                <!-- title_section_end -->
+                <!-- first_image_block_start -->
+                <div class="col-lg-5-post-left">
+                    <div>
+                        <div class="combo_image_Description">
+                            <input type="file" id="">
+                            <button id="left_image_click" class="left_image_click">
+                                <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                                </label>
+                            </button>
+                            <textarea name="" id="" placeholder="write about the image"></textarea>
+                        </div>
+                        <div class="latest_post_area_image_button">
+                            <button><label for="">Submit</label></button>
+                            <button><label for="">Submit</label></button>
+                        </div>
+                    </div>
+                    <div class="top_post_details">
+                        <span><input type="text" id="" required placeholder="mark wiens"></span>
+                        <span><input type="date" id="" required></span>
+                        <span><input type="text" id="" required placeholder="write your comment"></span>
+                    </div>
+                    <div class="top_post_details">
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                    </div>
+                </div>
+                <!-- first_image_block_end -->
+                <!-- second_image_block_start -->
+                <div class="col-lg-5-post-left">
+                    <div>
+                        <div class="combo_image_Description">
+                            <input type="file" id="">
+                            <button id="left_image_click" class="left_image_click">
+                                <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                                </label>
+                            </button>
+                            <textarea name="" id="" placeholder="write about the image"></textarea>
+                        </div>
+                        <div class="latest_post_area_image_button">
+                            <button><label for="">Submit</label></button>
+                            <button><label for="">Submit</label></button>
+                        </div>
+                    </div>
+                    <div class="top_post_details">
+                        <span><input type="text" id="" required placeholder="mark wiens"></span>
+                        <span><input type="date" id="" required></span>
+                        <span><input type="text" id="" required placeholder="write your comment"></span>
+                    </div>
+                    <div class="top_post_details">
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                    </div>
+                </div>
+                <!-- second_image_block_end -->
+                <!-- third_image_block_start -->
+                <div class="col-lg-5-post-left">
+                    <div>
+                        <div class="combo_image_Description">
+                            <input type="file" id="">
+                            <button id="left_image_click" class="left_image_click">
+                                <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                                </label>
+                            </button>
+                            <textarea name="" id="" placeholder="write about the image"></textarea>
+                        </div>
+                        <div class="latest_post_area_image_button">
+                            <button><label for="">Submit</label></button>
+                            <button><label for="">Submit</label></button>
+                        </div>
+                    </div>
+                    <div class="top_post_details">
+                        <span><input type="text" id="" required placeholder="mark wiens"></span>
+                        <span><input type="date" id="" required></span>
+                        <span><input type="text" id="" required placeholder="write your comment"></span>
+                    </div>
+                    <div class="top_post_details">
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                    </div>
+                </div>
+                <!-- third_image_block_end-->
+                <!-- fourth_image_block_start -->
+                <div class="col-lg-5-post-left">
+                    <div>
+                        <div class="combo_image_Description">
+                            <input type="file" id="">
+                            <button id="left_image_click" class="left_image_click">
+                                <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                                </label>
+                            </button>
+                            <textarea name="" id="" placeholder="write about the image"></textarea>
+                        </div>
+                        <div class="latest_post_area_image_button">
+                            <button><label for="">Submit</label></button>
+                            <button><label for="">Submit</label></button>
+                        </div>
+                    </div>
+                    <div class="top_post_details">
+                        <span><input type="text" id="" required placeholder="mark wiens"></span>
+                        <span><input type="date" id="" required></span>
+                        <span><input type="text" id="" required placeholder="write your comment"></span>
+                    </div>
+                    <div class="top_post_details">
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                    </div>
+                </div>
+                <!-- fourth_image_block_end -->
+            </section>
+            <section class="popular-post-wrap">
+                <div class="latest-post-wrap">
+                    <input type="text" id="latest_Title_name2" placeholder="latest_Title">
+                    <button><label for="latest_Title_name2">submit</label></button>
+                </div>
+                <div class="feature-post-relative">
+                    <div>
+                        <div class="combo_image_Description">
+                            <input type="file" id="">
+                            <button id="left_image_click" class="left_image_click">
+                                <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                                </label>
+                            </button>
+                            <textarea name="" id="" placeholder="write about the image"></textarea>
+                        </div>
+                        <div class="latest_post_area_image_button">
+                            <button><label for="">Submit</label></button>
+                            <button><label for="">Submit</label></button>
+                        </div>
+                    </div>
+                    <div class="top_post_details">
+                        <span><input type="text" id="" required placeholder="mark wiens"></span>
+                        <span><input type="date" id="" required></span>
+                        <span><input type="text" id="" required placeholder="write your comment"></span>
+                    </div>
+                    <div class="top_post_details">
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                    </div>
+                </div>
+                <div class="col-lg-6-single-popular-post">
+                    <div class="same_block">
+                        <div>
+                            <div class="combo_image_Description">
+                                <input type="file" id="">
+                                <button id="left_image_click" class="left_image_click">
+                                    <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                                    </label>
+                                </button>
+                                <textarea name="" id="" placeholder="write about the image"></textarea>
+                            </div>
+                            <div class="image_button">
+                                <button><label for="">Submit</label></button>
+                                <button><label for="">Submit</label></button>
+                            </div>
+                        </div>
+                        <div class="top_post_details">
+                            <span><input type="text" id="" required placeholder="mark wiens"></span>
+                            <span><input type="date" id="" required></span>
+                            <span><input type="text" id="" required placeholder="write your comment"></span>
+                        </div>
+                        <div class="top_post_details">
+                            <button><label for="">Submit</label></button>
+                            <button><label for="">Submit</label></button>
+                            <button><label for="">Submit</label></button>
+                        </div>
+                    </div>
+                    <div class="same_block">
+                        <div>
+                            <div class="combo_image_Description">
+                                <input type="file" id="">
+                                <button id="" class="">
+                                    <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                                    </label>
+                                </button>
+                                <textarea name="" id="" placeholder="write about the image"></textarea>
+                            </div>
+                            <div class="image_button">
+                                <button><label for="">Submit</label></button>
+                                <button><label for="">Submit</label></button>
+                            </div>
+                        </div>
+                        <div class="top_post_details">
+                            <span><input type="text" id="" required placeholder="mark wiens"></span>
+                            <span><input type="date" id="" required></span>
+                            <span><input type="text" id="" required placeholder="write your comment"></span>
+                        </div>
+                        <div class="top_post_details">
+                            <button><label for="">Submit</label></button>
+                            <button><label for="">Submit</label></button>
+                            <button><label for="">Submit</label></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="latest-post-area_pb-120_first_block">
+                <div class="latest-post-wrap">
+                    <input type="text" id="latest_Title_name2" placeholder="latest_Title">
+                    <button><label for="latest_Title_name2">submit</label></button>
+                </div>
+                <div class="col-lg-5-post-left">
+                    <div>
+                        <div class="combo_image_Description">
+                            <input type="file" id="">
+                            <button id="left_image_click" class="left_image_click">
+                                <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                                </label>
+                            </button>
+                            <textarea name="" id="" placeholder="write about the image"></textarea>
+                        </div>
+                        <div class="latest_post_area_image_button">
+                            <button><label for="">Submit</label></button>
+                            <button><label for="">Submit</label></button>
+                        </div>
+                    </div>
+                    <div class="top_post_details">
+                        <span><input type="text" id="" required placeholder="mark wiens"></span>
+                        <span><input type="date" id="" required></span>
+                        <span><input type="text" id="" required placeholder="write your comment"></span>
+                    </div>
+                    <div class="top_post_details">
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                    </div>
+                </div>
+                <div class="col-lg-5-post-left">
+                    <div>
+                        <div class="combo_image_Description">
+                            <input type="file" id="">
+                            <button id="left_image_click" class="left_image_click">
+                                <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                                </label>
+                            </button>
+                            <textarea name="" id="" placeholder="write about the image"></textarea>
+                        </div>
+                        <div class="latest_post_area_image_button">
+                            <button><label for="">Submit</label></button>
+                            <button><label for="">Submit</label></button>
+                        </div>
+                    </div>
+                    <div class="top_post_details">
+                        <span><input type="text" id="" required placeholder="mark wiens"></span>
+                        <span><input type="date" id="" required></span>
+                        <span><input type="text" id="" required placeholder="write your comment"></span>
+                    </div>
+                    <div class="top_post_details">
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                    </div>
+                </div>
+                <div class="col-lg-5-post-left">
+                    <div>
+                        <div class="combo_image_Description">
+                            <input type="file" id="">
+                            <button id="left_image_click" class="left_image_click">
+                                <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                                </label>
+                            </button>
+                            <textarea name="" id="" placeholder="write about the image"></textarea>
+                        </div>
+                        <div class="latest_post_area_image_button">
+                            <button><label for="">Submit</label></button>
+                            <button><label for="">Submit</label></button>
+                        </div>
+                    </div>
+                    <div class="top_post_details">
+                        <span><input type="text" id="" required placeholder="mark wiens"></span>
+                        <span><input type="date" id="" required></span>
+                        <span><input type="text" id="" required placeholder="write your comment"></span>
+                    </div>
+                    <div class="top_post_details">
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <!-- left_side_image_block_end -->
+        <!-- right_side_image_block_start -->
+        <section class="sidebars-area">
+            <div class="latest-post-wrap">
+                <input type="text" id="latest_Title_name1" placeholder="latest_Title">
+                <button><label for="latest_Title_name1">submit</label></button>
+            </div>
+            <div class="col-lg-5-post-left">
+                <div>
+                    <div class="combo_image_Description">
+                        <input type="file" id="">
+                        <button id="left_image_click" class="left_image_click">
+                            <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                            </label>
+                        </button>
+                        <textarea name="" id="" placeholder="write about the image"></textarea>
+                    </div>
+                    <div class="latest_post_area_image_button">
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                    </div>
+                </div>
+                <div class="top_post_details">
+                    <span><input type="text" id="" required placeholder="mark wiens"></span>
+                    <span><input type="date" id="" required></span>
+                    <span><input type="text" id="" required placeholder="write your comment"></span>
+                </div>
+                <div class="top_post_details">
+                    <button><label for="">Submit</label></button>
+                    <button><label for="">Submit</label></button>
+                    <button><label for="">Submit</label></button>
+                </div>
+            </div>
+            <div class="col-lg-5-post-left">
+                <div>
+                    <div class="combo_image_Description">
+                        <input type="file" id="">
+                        <button id="left_image_click" class="left_image_click">
+                            <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                            </label>
+                        </button>
+                        <textarea name="" id="" placeholder="write about the image"></textarea>
+                    </div>
+                    <div class="latest_post_area_image_button">
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                    </div>
+                </div>
+                <div class="top_post_details">
+                    <span><input type="date" id="" required></span>
+                    <span><input type="text" id="" required placeholder="write your comment"></span>
+                </div>
+                <div class="top_post_details">
+                    <button><label for="">Submit</label></button>
+                    <button><label for="">Submit</label></button>
+                </div>
+            </div>
+            <div class="col-lg-5-post-left">
+                <div>
+                    <div class="combo_image_Description">
+                        <input type="file" id="">
+                        <button id="left_image_click" class="left_image_click">
+                            <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                            </label>
+                        </button>
+                        <textarea name="" id="" placeholder="write about the image"></textarea>
+                    </div>
+                    <div class="latest_post_area_image_button">
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                    </div>
+                </div>
+                <div class="top_post_details">
+                    <span><input type="date" id="" required></span>
+                    <span><input type="text" id="" required placeholder="write your comment"></span>
+                </div>
+                <div class="top_post_details">
+                    <button><label for="">Submit</label></button>
+                    <button><label for="">Submit</label></button>
+                </div>
+            </div>
+            <div class="col-lg-5-post-left">
+                <div>
+                    <div class="combo_image_Description">
+                        <input type="file" id="">
+                        <button id="left_image_click" class="left_image_click">
+                            <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                            </label>
+                        </button>
+                        <textarea name="" id="" placeholder="write about the image"></textarea>
+                    </div>
+                    <div class="latest_post_area_image_button">
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                    </div>
+                </div>
+                <div class="top_post_details">
+                    <span><input type="date" id="" required></span>
+                    <span><input type="text" id="" required placeholder="write your comment"></span>
+                </div>
+                <div class="top_post_details">
+                    <button><label for="">Submit</label></button>
+                    <button><label for="">Submit</label></button>
+                </div>
+            </div>
+            <div class="latest-post-wrap">
+                <input type="text" id="latest_Title_name1" placeholder="latest_Title">
+                <button><label for="latest_Title_name1">submit</label></button>
+            </div>
+            <div class="col-lg-5-post-left">
+                <div>
+                    <div class="combo_image_Description">
+                        <input type="file" id="">
+                        <button id="left_image_click" class="left_image_click">
+                            <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                            </label>
+                        </button>
+                        <textarea name="" id="" placeholder="write about the image"></textarea>
+                    </div>
+                    <div class="latest_post_area_image_button">
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                    </div>
+                </div>
+                <div class="top_post_details">
+                    <span><input type="date" id="" required></span>
+                    <span><input type="text" id="" required placeholder="write your comment"></span>
+                </div>
+                <div class="top_post_details">
+                    <button><label for="">Submit</label></button>
+                    <button><label for="">Submit</label></button>
+                </div>
+            </div>
+            <div class="col-lg-5-post-left">
+                <div>
+                    <div class="combo_image_Description">
+                        <input type="file" id="">
+                        <button id="left_image_click" class="left_image_click">
+                            <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                            </label>
+                        </button>
+                        <textarea name="" id="" placeholder="write about the image"></textarea>
+                    </div>
+                    <div class="latest_post_area_image_button">
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                    </div>
+                </div>
+                <div class="top_post_details">
+                    <span><input type="date" id="" required></span>
+                    <span><input type="text" id="" required placeholder="write your comment"></span>
+                </div>
+                <div class="top_post_details">
+                    <button><label for="">Submit</label></button>
+                    <button><label for="">Submit</label></button>
+                </div>
+            </div>
+            <div class="col-lg-5-post-left">
+                <div>
+                    <div class="combo_image_Description">
+                        <input type="file" id="">
+                        <button id="left_image_click" class="left_image_click">
+                            <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                            </label>
+                        </button>
+                        <textarea name="" id="" placeholder="write about the image"></textarea>
+                    </div>
+                    <div class="latest_post_area_image_button">
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                    </div>
+                </div>
+                <div class="top_post_details">
+                    <span><input type="date" id="" required></span>
+                    <span><input type="text" id="" required placeholder="write your comment"></span>
+                </div>
+                <div class="top_post_details">
+                    <button><label for="">Submit</label></button>
+                    <button><label for="">Submit</label></button>
+                </div>
+            </div>
+            <div class="col-lg-5-post-left">
+                <div>
+                    <div class="combo_image_Description">
+                        <input type="file" id="">
+                        <button id="left_image_click" class="left_image_click">
+                            <label for=""><i class="fa fa-upload fa-2x"></i>Drop image here
+                            </label>
+                        </button>
+                        <textarea name="" id="" placeholder="write about the image"></textarea>
+                    </div>
+                    <div class="latest_post_area_image_button">
+                        <button><label for="">Submit</label></button>
+                        <button><label for="">Submit</label></button>
+                    </div>
+                </div>
+                <div class="top_post_details">
+                    <span><input type="date" id="" required></span>
+                    <span><input type="text" id="" required placeholder="write your comment"></span>
+                </div>
+                <div class="top_post_details">
+                    <button><label for="">Submit</label></button>
+                    <button><label for="">Submit</label></button>
+                </div>
+            </div>
+
+        </section>
+        <!-- right_side_image_block_end -->
+    </section>
+    <!-- second_block_end -->
+    <footer class="footer-area section-gap">
+        <div class="container">
+            <!-- details_section_start -->
+            <div class="row">
+                <!-- first_datails_section_start -->
+                <div class="col-lg-3 col-md-6 single-footer-widget">
+                    <h4>Top Products</h4>
+                    <ul>
+                        <li><input type="text"></li>
+                        <li><button><label for="">Submit</label></button></li>
+                        <li><input type="text"></li>
+                        <li><button><label for="">Submit</label></button></li>
+                        <li><input type="text"></li>
+                        <li><button><label for="">Submit</label></button></li>
+                        <li><input type="text"></li>
+                        <li><button><label for="">Submit</label></button></li>
+                    </ul>
+                </div>
+                <!-- first_datails_section_end -->
+                <!-- second_datails_section_start -->
+                <div class="col-lg-2 col-md-6 single-footer-widget">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><input type="text"></li>
+                        <li><button><label for="">Submit</label></button></li>
+                        <li><input type="text"></li>
+                        <li><button><label for="">Submit</label></button></li>
+                        <li><input type="text"></li>
+                        <li><button><label for="">Submit</label></button></li>
+                        <li><input type="text"></li>
+                        <li><button><label for="">Submit</label></button></li>
+                    </ul>
+                </div>
+                <!-- second_datails_section_end -->
+                <!-- third_datails_section_start -->
+                <div class="col-lg-2 col-md-6 single-footer-widget">
+                    <h4>Features</h4>
+                    <ul>
+                        <li><input type="text"></li>
+                        <li><button><label for="">Submit</label></button></li>
+                        <li><input type="text"></li>
+                        <li><button><label for="">Submit</label></button></li>
+                        <li><input type="text"></li>
+                        <li><button><label for="">Submit</label></button></li>
+                        <li><input type="text"></li>
+                        <li><button><label for="">Submit</label></button></li>
+                    </ul>
+                </div>
+                <!-- rhird_datails_section_end -->
+                <!-- fourth_datails_section_start -->
+                <div class="col-lg-2 col-md-6 single-footer-widget">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><input type="text"></li>
+                        <li><button><label for="">Submit</label></button></li>
+                        <li><input type="text"></li>
+                        <li><button><label for="">Submit</label></button></li>
+                        <li><input type="text"></li>
+                        <li><button><label for="">Submit</label></button></li>
+                        <li><input type="text"></li>
+                        <li><button><label for="">Submit</label></button></li>
+                    </ul>
+                </div>
+                <!-- fourth_datails_section_end -->
+                <!-- fivth_datails_section_start -->
+                <!-- <div class="col-lg-3 col-md-6 single-footer-widget">
+                    <h4>Instragram Feed</h4>
+                    <div class="widget">
+                        <ul class="instafeed d-flex flex-wrap">
+                            <li><input type="file"></li>
+                            <li><button><label for="">Submit</label></button></li>
+                            <li><input type="file"></li>
+                            <li><button><label for="">Submit</label></button></li>
+                            <li><input type="file"></li>
+                            <li><button><label for="">Submit</label></button></li>
+                            <li><input type="file"></li>
+                            <li><button><label for="">Submit</label></button></li>
+                        </ul>
+                        <ul>
+                            <li><input type="file"></li>
+                            <li><button><label for="">Submit</label></button></li>
+                            <li><input type="file"></li>
+                            <li><button><label for="">Submit</label></button></li>
+                            <li><input type="file"></li>
+                            <li><button><label for="">Submit</label></button></li>
+                        </ul>
+                    </div>
+                </div> -->
+                <!-- fivth_details_section_end -->
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

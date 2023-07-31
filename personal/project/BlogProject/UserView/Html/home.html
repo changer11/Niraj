@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./../Css/home.css">
+</head>
+<!-- note: this is based on js -->
+<body>
+    <header>
+        <nav id="navigation_bar">
+            <input type="checkbox" name="" id="check">
+            <label for="check" class="checkbtn">
+              <button type="button"><i class="fa fa-navicon" onclick="document.getElementById('menu_bar').style.display='block'" ></i>
+                Menu</button>
+            </label>
+            <!-- <label for="check" class="checkbtn">
+                <i class="fa fa-navicon"  ></i>
+                  Menu
+              </label> -->
+            <ul class="menu_bar" id="menu_bar">
+                <li><a href="">HOME</a></li>
+                <li><a href="">ARCHIEVE</a></li>
+                <li><a href="">CATEGORY</a></li>
+                <li><a href="">POST-TYPES <i class="fa fa-chevron-down"></i></a>
+                    <div id="menu_bar_list">
+                        <ul>
+                            <li> <a href="">Standard Post</a></li>
+                            <li><a href="">Image Post</a></li>
+                            <li><a href="">GalleryPost</a></li>
+                            <li><a href="">Video Post</a></li>
+                            <li><a href="">Audio Post</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="">ABOUT</a></li>
+                <li><a href="">CONTACT</a></li>
+                <li><button type="button"onclick="document.getElementById('menu_bar').style.display='none'">x</button></li>
+            </ul>
+    
+            <aside class="nav_input_sec">
+                <div class="search_section">
+                    <a href=""><input type="search" placeholder="search" id="search"></a>
+                </div>
+               <div class="search_icon">
+               <button type="button"><i class="fa fa-search" onclick="document.getElementById('search').style.display ='inline'">
+            </i></button>
+               </div>
+            </aside>
+        </nav>
+    </header>
+</body>
+</html>

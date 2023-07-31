@@ -1,0 +1,1020 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgba(235, 231, 231, 0.932);
+}
+
+.invoice_page {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+/* <!-- header start  --> */
+.menu_bar {
+    width: 21%;
+    background-color: rgb(14, 35, 71);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+/* <!-- first_sectionstart --> */
+.menu_bar nav label {
+    display: none;
+}
+
+.menu_bar nav input {
+    display: none;
+}
+
+.menu_bar nav ul {
+    list-style-type: none;
+}
+
+.menu_bar .menu_list {
+    margin-top: 70px;
+    margin-left: 40px;
+}
+
+.menu_bar .menu_list li {
+    margin-top: 10px;
+}
+
+.menu_bar .menu_list li a {
+    color: white;
+    text-decoration: none;
+    font-size: large;
+}
+
+.menu_bar .menu_list li i {
+    padding-right: 10px;
+}
+/* <!-- first_section_end --> */
+/* <!-- second_section_start --> */
+.menu_bar nav .user_details li {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}
+
+.menu_bar nav .user_details li a {
+    color: white;
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+}
+
+.menu_bar nav .user_details li i {
+    padding-right: 10px;
+}
+/* <!-- second_section_end --> */
+/* <!-- header end  --> */
+/* <!-- this is for mobile  --> */
+/* <!-- start page  --> */
+/* n0te:- the property of all tag given in the side bar area   */
+.responsive_for_mobile .custom_menu {
+    display: none;
+}
+
+.responsive_for_mobile .invoice_details {
+    display: none;
+}
+
+.responsive_for_mobile .up_button {
+    display: none;
+}
+
+.responsive_for_mobile .invoice_details ul .Remove_description {
+    display: none;
+}
+/* <!-- this is for mobile  --> */
+/* <!-- end mobile_page--> */
+/* <!-- middle area start  --> */
+.tool_page {
+    width: 53%;
+    height: auto;
+}
+/* <!-- first_page start --> */
+.tool_page .tool_tracker select {
+    height: 40px;
+
+    border-radius: 5px;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+.tool_page .tool_tracker select:hover {
+    border: 2px solid blue;
+}
+/* <!-- first_page end --> */
+/* <!-- second_page_start --> */
+.tool_page .tool_description {
+    background-color: white;
+    border: 2px solid rgba(255, 255, 255, 0.87);
+    height: auto;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+/* <!-- first_sectionstart --> */
+.tool_description_process {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+.tool_description_process li{
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.tool_description_process .logo {
+    height: 40px;
+    width: 300px;
+    padding-top: 4px;
+    padding-left: 15px;
+    border-radius: 5px;
+}
+.tool_description_process .logo button{
+    background-color: white;
+    border: 0;
+}
+.tool_description_process .profile{
+    height: 170px;
+    width: 190px;
+    border: 2px solid white;
+    border-radius: 5px;
+    display: none;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+.tool_description:hover .profile{
+    border: 2px dashed rgb(140, 134, 134);
+}
+.tool_description_process .profile:hover{
+    border: 2px solid blue;
+}
+.tool_description_process .profile button{
+    background-color: white;
+    border: 0;
+    font-size: large;
+}
+.tool_description_process .profile img{
+    height: 150px;
+    width: 120px;
+}
+.tool_description_process .profile i{
+    color: blue;
+    font-size: larger;
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 75px;
+}
+.tool_description_process .profile:hover i{
+    display: flex;
+}
+.tool_description:hover .tool_description_process .logo {
+    border: 2px dashed rgb(140, 134, 134);
+}
+
+.tool_description:hover .tool_description_process .logo:hover {
+    border: 2px solid blue;
+    border-radius: 5px;
+}
+.tool_page .tool_description .tool_description_process li label {
+    font-size: medium;
+}
+
+.tool_description_process li input {
+    display: none;
+}
+
+.tool_description_process select {
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 20px;
+    border: 0;
+}
+
+.tool_description:hover .tool_description_process select {
+     border: 2px dashed rgb(140, 134, 134);
+}
+
+.tool_description:hover .tool_description_process select:hover {
+    border: 2px solid blue;
+    border-radius: 5px;
+}
+
+
+.tool_description_process .numbering {
+    height: 40px;
+    width: 200px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.tool_description:hover .tool_description_process .numbering {
+    border: 2px dashed rgb(140, 134, 134);
+
+}
+
+.tool_description:hover .tool_description_process .numbering:hover {
+    border: 2px solid blue;
+}
+/* <!-- first_section end--> */
+/* <!-- second_section_start  --> */
+.transaction_details {
+    list-style-type: none;
+    text-align: right;
+    margin-top: 30px;
+}
+
+.transaction_details li {
+    margin-top: 30px;
+    border: 2px solid white;
+}
+
+.transaction_details li .time_details {
+    font-size: medium;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-right: 10px;
+}
+
+.transaction_details li .time {
+    padding: 10px 40px 10px 20px;
+    border-radius: 5px;
+    border: 2px solid white;
+}
+
+.tool_description:hover .transaction_details .time {
+    border: 2px dashed rgb(140, 134, 134);
+}
+
+.tool_description:hover .transaction_details .time:hover {
+    border: 2px solid blue;
+}
+/* <!-- second_section_end  --> */
+/* <!-- third_section_start  --> */
+
+.customer_details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.customer_details ul {
+    list-style-type: none;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: large;
+}
+
+.customer_details p {
+    font-size: large;
+}
+
+.customer_details .starting_process {
+    width: 350px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    border: 2px dotted white;
+}
+
+.customer_details .starting_process div {
+    display: flex;
+}
+
+.tool_description:hover .starting_process {
+    border: 2px dashed rgb(140, 134, 134);
+}
+
+.tool_description:hover .starting_process:hover {
+    border: 2px solid blue;
+}
+
+.customer_details .starting_process .add_company {
+    display: none;
+}
+
+.customer_details .end_process .add_client {
+    display: none;
+}
+
+.customer_details input {
+    height: 45px;
+    width: 305px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.customer_details input:hover {
+    border: 2px solid blue;
+}
+
+.customer_details .end_process {
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 350px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    border: 2px solid white;
+}
+
+.customer_details .end_process div {
+    display: flex;
+}
+
+.tool_description:hover .end_process {
+    border: 2px dashed rgb(140, 134, 134);
+}
+
+.tool_description:hover .end_process:hover {
+    border: 2px solid blue;
+}
+/* <!-- third_section_end  --> */
+/* <!-- fourth_section_start  --> */
+.add_description {
+    display: none;
+}
+
+.add_description input {
+    height: 45px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.add_description input:hover {
+    border: 2px solid blue;
+}
+/* <!-- fourth_section_end  --> */
+/* <!-- fiveth_section_start  --> */
+.product_exchange {
+    width: 100%;
+    border: 2px solid black;
+    height: auto;
+
+    margin-top: 20px;
+}
+.product_exchange button{
+    background-color: white;
+    border: 0;
+    font-size: small;
+}
+
+.product_exchange .header_description ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    border-collapse: collapse;
+    justify-content: space-around;
+    height: 50px;
+    background-color: grey;
+    border: 1px solid black;
+}
+
+.product_name {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+.product_name .product {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+.product_name ul {
+    list-style: none;
+    height: 60px;
+
+}
+
+.product_name .icon {
+    display: none;
+    align-items: flex-end;
+
+}
+
+.product_exchange .product_name:hover .icon {
+    display: flex;
+}
+
+.product_name .icon i {
+    padding-right: 14px;
+    padding-bottom: 10px;
+    color: blue;
+    display: none;
+    font-size: larger;
+}
+
+.courses {
+    height: auto;
+    display: none;
+    border: 1px solid black;
+  
+}
+
+.courses .first_section {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    justify-content: space-between;
+}
+
+.courses .first_section .coding {
+    border: 2px solid black;
+    height: 25px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    /* padding-left: 5px; */
+}
+
+.courses .first_section li input {
+    height: 25px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+.courses .first_section li select {
+    height: 25px;
+    border-radius: 5px;
+}
+
+
+.total_value{
+    height: 25px;
+    width: 100px;
+}
+
+.second_section {
+    display: flex;
+    justify-content: space-between;
+}
+.courses:hover .icon{
+    display: flex;
+}
+
+.second_section input {
+    height: 30px;
+    width: 560px;
+}
+
+.second_section ul {
+    list-style-type: none;
+    margin-bottom: 5px;
+}
+
+.second_section .icon {
+    display: none;
+    list-style: none;
+}
+
+.second_section .icon i {
+    color: blue;
+    font-size: 20px;
+    padding-right: 14px;
+}
+/* <!-- fiveth_section_end --> */
+/* <!-- sixth section start  --> */
+
+.invoice_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    margin-top: 20px;
+    width: 100%;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.invoice_item label {
+    font-size: large;
+}
+.invoice_item button{
+    border: 0;
+    background-color: #f8f9fa;
+    font-size: large;
+}
+
+.invoice_money {
+    margin-top: 20px;
+}
+
+.invoice_money .invoice_summary ul {
+    display: flex;
+    justify-content: right;
+    list-style: none;
+
+}
+
+.invoice_money .invoice_summary ul li {
+    background-color: #dee2e6;
+    padding: 5px 10px;
+}
+
+.invoice_money .invoice_summary ul .content {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.invoice_money .invoice_summary ul .usd {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.invoice_money .invoice_summary ul li select {
+    width: 90px;
+    margin-top: 7px;
+    border: 1px solid black;
+    background-color: grey;
+    border-radius: 5px;
+    height: 25px;
+}
+
+.invoice_money .money_details {
+    text-align: right;
+    padding-top: 10px;
+}
+
+.invoice_money .money_details .calculate .first {
+    padding-right: 100px;
+}
+/* <!-- sixth section end  --> */
+/* <!-- seventh section start --> */
+
+.tool_description .footer {
+    border: 2px solid black;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    padding-left: 10px;
+    margin-bottom: 40px;
+    border-radius: 5px;
+}
+
+.footer p {
+    font-size: larger;
+}
+/* <!-- seventh section end --> */
+/* <!-- second_page_end--> */
+/* <!-- middle_area end --> */
+/* <!-- sidebar_area_start --> */
+.invoice_details {
+    width: 22%;
+    height: auto;
+}
+/* <!-- first_section start  --> */
+.invoice_details ul {
+    list-style-type: none;
+    margin-top: 80px;
+}
+
+.invoice_details ul li {
+    max-width: 300px;
+    height: 40px;
+    border: 2px solid blue;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.invoice_details ul .Remove_description {
+    display: none;
+}
+
+.invoice_details ul .REmove_PAYMENT {
+    display: none;
+}
+
+.invoice_details i {
+    padding-right: 5px;
+}
+
+.invoice_details button {
+    font-size: medium;
+    color: blue;
+    border: 0;
+}
+
+
+.invoice_details ul li i {
+    color: blue;
+}
+
+.invoice_details ul .payment_description {
+    border: 0px;
+    display: none;
+}
+
+.invoice_details ul .payment_description input {
+    width: 300px;
+    height: 40px;
+    border: 2px solid blue;
+    border-radius: 5px;
+}
+/* <!-- first_section_end --> */
+/* <!-- second_section_start --> */
+.invoice_details .details_2nd li {
+    background-color: blue;
+}
+
+.invoice_details .details_2nd li button {
+    color: white;
+    background-color: blue;
+}
+
+.invoice_details .details_2nd li i {
+    color: white;
+}
+/* <!-- second_sectio_end --> */
+/* <!-- sidebar_area_end --> */
+
+/* <!-- note:- this form is for Add custom field .who available in the side bar area --> */
+/* <!-- start page  --> */
+.form_section {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.484);
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.form_field {
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    height: auto;
+    width: 700px;
+    padding: 35px 30px 0px 30px;
+    border: 2px solid rgb(213, 212, 212);
+}
+/* <!-- first_section start  --> */
+.form_field p {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.form_field .back_button {
+    text-align: right;
+    margin-top: -30px;
+}
+
+.form_field .back_button button {
+    font-size: large;
+    background-color: white;
+    width: 25px;
+    border: 0;
+}
+
+.form_field .back_button button:hover {
+    border: 2px solid blue;
+}
+
+.form_field fieldset {
+    margin: 30px;
+    height: auto;
+}
+
+.form_field fieldset div {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.form_field fieldset div select {
+    height: 40px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.form_field fieldset div label {
+    font-size: larger;
+}
+
+.form_field fieldset div input {
+    margin-top: 10px;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.form_field fieldset div #content {
+    height: 100px;
+    width: 100%;
+}
+
+.form_field fieldset button {
+    margin-bottom: 30px;
+    font-size: medium;
+    height: 40px;
+    width: 80px;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    box-shadow: 0px 3px rgb(132, 93, 93);
+}
+/* <!-- first_section end --> */
+/* <!-- second_section start --> */
+.form_field .footer_icon {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    padding-bottom: 30px;
+}
+
+.form_field .footer_icon button {
+    font-size: medium;
+    height: 40px;
+    width: auto;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    box-shadow: 0px 3px rgb(132, 93, 93);
+    margin-left: 40px;
+}
+/* <!-- second_section end --> */
+/* <!-- end page  --> */
+@media (max-width:900px) {
+    .invoice_page {
+        display: block;
+    }
+    /* <!-- header start  --> */
+    .invoice_page .menu_bar {
+        height: 60px;
+        width: 100%;
+    }
+    /* <!-- first_sectionstart --> */
+    .invoice_page .menu_bar label {
+        display: block;
+        font-size: 35px;
+        cursor: pointer;
+        padding-top: 12px;
+        padding-left: 13px;
+        color: white;
+    }
+
+    .invoice_page .menu_bar ul {
+        height: 100vh;
+        background-color: black;
+        position: absolute;
+        top: 60px;
+        margin: 0;
+        left: -100%;
+        padding-left: 30px;
+        color: white;
+    }
+
+    .invoice_page .menu_bar ul li {
+        width: 300px;
+        margin-top: 20px;
+        font-size: large;
+    }
+    /* <!-- first_section_end --> */
+    /* <!-- second_section_start --> */
+    .invoice_page .menu_bar .user_details li {
+        position: absolute;
+        bottom: 200px;
+        left: 30px;
+    }
+
+    .invoice_page .menu_bar .user_details li a {
+        color: white;
+    }
+    /* <!-- second_section_end --> */
+    #check:checked~ul {
+        left: 0px;
+        transition: ease-in-out 0.4s;
+    }
+/* <!-- header end   --> */
+
+  /* <!-- this is for mobile  --> */
+  /* <!-- start page  --> */
+  .responsive_for_mobile .custom_menu {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.responsive_for_mobile .invoice_details ul .Remove_description {
+    display: none;
+}
+
+.responsive_for_mobile .custom_menu button {
+    outline: 0;
+    border: 0;
+    background-color: rgba(235, 231, 231, 0.932);
+    font-size: large;
+    color: blue;
+}
+
+.responsive_for_mobile .up_button {
+    text-align: center;
+    display: none;
+    margin-top: 20px;
+}
+
+.responsive_for_mobile .up_button i {
+    font-size: 35px;
+    color: blue;
+}
+
+.responsive_for_mobile .up_button button {
+    outline: 0;
+    border: 0;
+    background-color: rgba(235, 231, 231, 0.932);
+    font-size: large;
+}
+
+.responsive_for_mobile .invoice_details {
+    width: 100%;
+}
+
+.responsive_for_mobile .invoice_details ul {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.responsive_for_mobile .invoice_details ul li {
+    margin-left: auto;
+    margin-right: auto;
+}
+/* <!-- this is for mobile  --> */
+/* <!-- end mobile_page--> */
+
+/* <!-- middle area start  --> */
+    .tool_page {
+        width: 100%;
+    }
+    /* <!-- third_section_start  --> */
+    .customer_details .starting_process {
+        width: 290px;
+    }
+
+    .customer_details .end_process {
+        width: 290px;
+    }
+
+    .customer_details input {
+        width: 260px;
+    }
+    /* <!-- third_section_end  --> */
+    /* <!-- fiveth_section_start  --> */
+    .courses .first_section .coding {
+        font-size: smaller;
+        padding-left: 0px;
+        width:90px;
+    }
+    
+  .courses .first_section li input {
+        width: 50px;
+        margin-left: 25px;
+    }
+    
+    .courses .first_section li select {
+        margin-left: 15px;
+    }
+    
+    .courses ul li {
+        margin-left: 5px;
+    }
+   
+    .second_section input {
+        height: 30px;
+        width: 360px;
+    }
+    /* <!-- fiveth_section_end --> */
+    /* <!-- middle_area end --> */
+    /* <!-- sidebar_area_start --> */
+    .invoice_details {
+        display: none;
+    }
+  /* <!-- sidebar_area_start --> */
+   
+}
+
+@media (max-width:450px) {
+    .invoice_page .menu_bar ul li {
+        width: 330px;
+    }
+
+    .responsive_for_mobile button i {
+        font-size: 25px;
+    }
+
+    .responsive_for_mobile .up_button i {
+        font-size: 25px;
+    }
+
+    .customer_details {
+        display: block;
+    }
+
+    .customer_details .starting_process {
+        width: 260px;
+    }
+
+    .customer_details .end_process {
+        margin-top: 20px;
+        width: 260px;
+    }
+
+    .customer_details input {
+        width: 230px;
+    }
+
+
+    .tool_description_process .detail {
+        margin-top: 20px;
+    }
+
+    .tool_description_process .numbering {
+        width: 100px;
+        margin-top: 20px;
+    }
+
+    .form_field {
+        width: 360px;
+        margin-top: 40px;
+    }
+
+    .form_field fieldset div {
+        padding-top: 10px;
+    }
+
+    .form_field fieldset div select {
+        margin-top: 5px;
+    }
+
+    .form_field fieldset div label {
+        font-size: larger;
+    }
+
+    .form_field .footer_icon button {
+        font-size: small;
+        height: 40px;
+        width: auto;
+        padding: 3px;
+        margin-left: 10px;
+    }
+    .courses .first_section .coding {
+        width:90px;
+    }
+    
+  .courses .first_section li input {
+        margin-left: 0px;
+    }
+    
+    .courses .first_section li select {
+        margin-left: 0px;
+        width: 50px;
+        font-size: smaller;
+    }
+    
+    .courses ul li {
+        margin-left: 5px;
+    }
+    
+    .second_section input {
+        height: 30px;
+        width: 250px;
+    }
+    .product_name .icon i {
+        padding-right: 5px;
+        padding-bottom: 5px;
+    }
+    .second_section .icon i {
+        padding-right: 0px;
+    }
+    
+
+}
