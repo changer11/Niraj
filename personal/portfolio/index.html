@@ -31,7 +31,7 @@
                     </div>
                     <ul class="nav" id="nav">
                         <li class="nav-item"><a href="#home" class="nav-link click">Home</a></li>
-                        <li class="nav-item"><a href="" class="nav-link click">About</a></li>
+                        <li class="nav-item"><a href="#about" class="nav-link click">About</a></li>
                         <li class="nav-item"><a href="" class="nav-link click">Education</a></li>
                         <li class="nav-item"><a href="" class="nav-link click">Skills</a></li>
                         <li class="nav-item"><a href="" class="nav-link click">Contact</a></li>
@@ -40,39 +40,72 @@
             </div>
         </nav>
     </header>
-    <section id="home">
-        <div class="container home">
-            <div class="home_content">
-                <h1>Hii, I'm <span>Niraj Singh</span></h1>
-                <div class="text-animate">
-                    <h3>Frontend Developer</h3>
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, quisquam quae. Necessitatibus
-                    adipisci
-                    nemo voluptas perspiciatis veniam dolorem eligendi eos ut ipsa
-                </p>
-                <div class="btn_box">
-                    <a href="" class="btn">Hire Me</a>
-                    <a href="" class="btn ms-5">Let's Talk</a>
-                </div>
-                <div class="btn_icon">
-                    <a href="" class="btn"><i class="fa fa-facebook"></i></a>
-                    <a href="" class="btn ms-4"><i class="fa fa-instagram"></i></a>
-                    <a href="" class="btn ms-4"><i class=" fa fa-twitter"></i></a>
-                    <a href="" class="btn ms-4"><i class="fa fa-linkedin"></i></a>
+    <section id="home" class="pb-4">
+        <div class="container ">
+            <div class="home">
+                <div class="home_content">
+                    <h1>Hii, I'm <span>Niraj Singh</span></h1>
+                    <div class="text-animate">
+                        <h3>Frontend Developer</h3>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, quisquam quae. Necessitatibus
+                        adipisci
+                        nemo voluptas perspiciatis veniam dolorem eligendi eos ut ipsa
+                    </p>
+                    <div class="btn_box">
+                        <a href="" class="btn">Hire Me</a>
+                        <a href="" class="btn ms-5">Let's Talk</a>
+                    </div>
+                    <div class="btn_icon">
+                        <a href="https://www.facebook.com/babuniraj.singh.3" class="btn" target="_blank"><i
+                                class="fa fa-facebook"></i></a>
+                        <a href="https://instagram.com/mr__changer__?igshid=ZDc4ODBmNjlmNQ==" class="btn ms-4"
+                            target="_blank"><i class="fa fa-instagram"></i></a>
+                        <a href="" class="btn ms-4" target="_blank"><i class=" fa fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/niraj-singh-b0b44826b" class="btn ms-4"><i
+                                class="fa fa-linkedin" target="_blank"></i></a>
 
+                    </div>
+                </div>
+                <div class="img">
+                    <img src="./1658189499809.jpg" alt="">
                 </div>
             </div>
-            <div class="img">
-                <img src="./1658189499809.jpg" alt="">
+            <hr>
+            <div class="about" id="about">
+                <div class="heading">
+                    <h1>About <span>Me</span></h1>
+                </div>
+                <div class="about_image">
+                    <img src="./1673721417321.jpeg" alt="">
+                    <span class="circle"></span>
+                </div>
+                <div class="about_content">
+                    <h3>Frontend Developer</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae suscipit, culpa, ipsum hic
+                        omnis fugiat officia modi eveniet, accusantium dignissimos sapiente voluptatibus earum quod
+                        veritatis totam delectus. Illum, nesciunt porro.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem aut libero error sint accusantium
+                        vero officiis laudantium cumque amet quidem, nam pariatur laboriosam obcaecati voluptatibus
+                        ipsam porro impedit labore dolores cupiditate non dignissimos dolore saepe. Iste obcaecati
+                        reiciendis doloremque voluptate cupiditate error tenetur tempore nisi aspernatur, magnam culpa
+                        officia sunt repellendus totam. Eum provident voluptatibus consectetur iusto numquam reiciendis
+                        rem minima, atque tempora ad sint earum ipsa vero officiis eaque, voluptas nisi laborum, dolores
+                        corrupti saepe. Quia aliquam odio alias perspiciatis quisquam aut porro excepturi, officia omnis
+                        placeat rerum, sunt sapiente nulla reprehenderit magni possimus consectetur fuga voluptate
+                        natus. Minima?</p>
+                    <div class="btn_box">
+                        <a href="" class="btn">Read More</a>
+                    </div>
+                </div>
             </div>
+            <hr>
         </div>
     </section>
 </body>
 <script>
     var btnContainer = document.getElementById("nav");
-
     // Get all buttons with class="btn" inside the container
     var btns = btnContainer.getElementsByClassName("click");
     // Loop through the buttons and add the active class to the current/clicked button
