@@ -18,7 +18,12 @@ header {
     color: #ededed;
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 2;
+}
+
+nav {
+    border-bottom: 3px solid rgb(29, 55, 89);
+    border-radius: 20px;
 }
 
 .nav a {
@@ -32,9 +37,13 @@ header {
 
 .nav a.active {
     color: blue;
+    background-color: white;
 }
 
-header .icon {
+header label{
+    display: none;
+}
+header  input {
     display: none;
 }
 
@@ -47,8 +56,10 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    border-bottom: 3px solid rgb(29, 55, 89);
+    border-radius: 20px;
 }
 
 .home_content {
@@ -82,7 +93,7 @@ section {
     display: flex;
     width: 300px;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 70px;
 }
 
 .btn_box .btn {
@@ -163,19 +174,22 @@ section {
 .img {
     text-align: right;
     overflow: hidden;
+    border-radius: 50%;
+    padding: 15px;
 }
 
 .img img {
-    height: 75vh;
-    width: 90%;
+    height: 60vh;
+    width: 100%;
     border-radius: 15px;
     filter: brightness(0.2);
     transition: 2s;
     overflow: hidden;
+    border-radius: 50%;
 }
 
 .img img:hover {
-    filter: brightness(0.7);
+    filter: brightness(0.5);
     transform: scale(1.01);
 }
 
@@ -184,7 +198,13 @@ section {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    border-bottom: 3px solid rgb(29, 55, 89);
+    border-radius: 20px;
+    background-color: #05131d;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .about div {
@@ -200,10 +220,10 @@ section {
 }
 
 .about_image {
-    border-top: 3px solid #081b29;
-    border-bottom: 3px solid #081b29;
+    border-top: 3px solid #05131d;
+    border-bottom: 3px solid #05131d;
     border-left: 3px solid rgba(30, 30, 146, 0.717);
-    border-right: 3px solid rgba(30, 30, 146, 0.717);
+    border-right: 3px solid rgba(29, 29, 227, 0.717);
     border-radius: 50%;
     padding: 8px;
 }
@@ -212,19 +232,392 @@ section {
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    outline-offset: 1px;
-    outline: 3px solid rgba(30, 30, 146, 0.717);
+    outline-offset: 2px;
+    outline: 2px solid rgba(16, 16, 163, 0.717);
 }
 
 .about_content {
     text-align: center;
 }
-.about_content p{
-     margin-top: 20px;
+
+.about_content p {
+    margin-top: 20px;
 }
 
 .about_content .btn_box {
     display: flex;
     justify-content: center;
     width: 100%;
+}
+
+.my_Journey {
+    padding-top: 10px;
+    padding-bottom: 100px;
+    border-bottom: 3px solid rgb(29, 55, 89);
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.my_Journey div {
+    margin-top: 20px;
+}
+
+.my_Journey .heading {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.my_Journey .heading span {
+    color: rgb(0, 110, 255);
+}
+
+/* .my_Journey h3{
+    margin-top: 30px;
+} */
+.my_Journey .Education {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.my_Journey .Education .card {
+    width: 28%;
+    border: 2px solid blue;
+    background-color: #081b29;
+    position: relative;
+}
+
+.my_Journey .Education .card h3 {
+    font-weight: bold;
+}
+
+.my_Journey .Education h6 {
+    font-weight: bold;
+}
+
+.my_Journey .Education h6 i {
+    color: blue;
+    margin-right: 10px;
+}
+
+.card .card-body {
+    overflow: hidden;
+    z-index: 1;
+    color: #ededed;
+}
+
+.card .card-body::before {
+    content: "";
+    position: absolute;
+    background-color: #0d293b;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    z-index: -1;
+    transition: .5s;
+    color: transparent #ededed;
+}
+
+.card .card-body:hover::before {
+    width: 100%;
+}
+
+.Skills {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #05131d;
+    border-bottom: 3px solid rgb(29, 55, 89);
+}
+
+.Skills .heading {
+    text-align: center;
+    font-weight: bold;
+}
+
+.Skills .heading span {
+    color: rgb(0, 110, 255);
+}
+
+.Skills_box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.Skills_box .skills_content {
+    width: 45%;
+}
+
+.Skills_box .skills_content h3 {
+    margin-top: 20px;
+}
+
+.Skills_box .card {
+    border: 2px solid blue;
+    background-color: #05131d;
+    position: relative;
+    color: #ededed;
+    margin-top: 30px;
+}
+
+.skills_area {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.skills_name .progress {
+    /* margin-top: 10px; */
+    margin-bottom: 20px;
+}
+
+.Contact {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    border-bottom: 3px solid rgb(29, 55, 89);
+    border-radius: 20px;
+}
+
+.Contact h1 {
+    text-align: center;
+}
+
+.Contact h1 span {
+    color: rgb(0, 110, 255);
+}
+
+form {
+    margin-top: 20px;
+}
+
+.form_section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.form_section div {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.form_section div input {
+    width: 300px;
+    background-color: #1584d4;
+    border: 2px solid blue;
+
+}
+
+.form_section div input:focus {
+    border: 2px solid blue;
+    background-color: #0d293b;
+}
+
+.form_section div input::placeholder {
+    color: #ededed;
+}
+
+.form_section div input[type="text"] {
+    background-color: #081b29;
+    color: #ededed;
+}
+
+.form_section div input[type="number"] {
+    background-color: #081b29;
+    color: #ededed;
+
+}
+
+.form_section div input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form_section div input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form_section div input[type="email"] {
+    background-color: #081b29;
+    color: #ededed;
+}
+
+.form_section textarea:focus {
+    background-color: #081b29;
+    border: 2px solid blue;
+}
+
+.form_section textarea {
+    margin-top: 20px;
+    height: 130px;
+    width: 48%;
+    background-color: #081b29;
+    border: 2px solid blue;
+}
+
+.form_section textarea::placeholder {
+    color: #ededed;
+}
+
+.form_section .btn {
+    border: 2px solid blue;
+    position: relative;
+    color: blue;
+    overflow: hidden;
+    z-index: 1;
+    margin-top: 20px;
+    color: #ededed;
+    background-color: blue;
+}
+
+.form_section .btn::before {
+    content: "";
+    position: absolute;
+    background-color: #081b29;
+    border: 2px solid blue;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    z-index: -1;
+    transition: .5s;
+    color: transparent #ededed;
+}
+
+.form_section .btn:hover::before {
+    width: 100%;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding-top: 20px;
+}
+
+.footer .container a {
+    text-decoration: none;
+    border: 2px solid blue;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-flex;
+
+}
+
+.footer .container a::before {
+    content: "";
+    position: absolute;
+    background-color: rgb(13, 0, 255);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    transition: .5s;
+    border-radius: 5px;
+    z-index: -1;
+}
+
+.footer .container a:hover::before {
+    width: 100%;
+}
+
+.footer .container a i {
+    font-size: medium;
+}
+
+.footer .container p {
+    font-size: large;
+}
+
+@media(max-width:900px) {
+    .home .img {
+        display: none;
+    }
+
+    .home {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .home .home_content {
+        margin-top: 0px;
+    }
+
+    .home .home_content h1 {
+        font-size: xx-large;
+    }
+
+    .home .home_content h3 {
+        font-size: x-large;
+    }
+
+    .home .btn_icon {
+        margin-top: 20px;
+    }
+
+    .home .btn_box {
+        margin-top: 20px;
+        width: 250px;
+    }
+
+    /* .btn_box {
+
+        width: 300px;
+        justify-content: space-between;
+        margin-top: 70px;
+    } */
+    .my_Journey {
+        padding-bottom: 40px;
+        padding-top: 10px;
+    }
+
+    .my_Journey .Education .card {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .Skills_box {
+        flex-direction: column;
+    }
+
+    .Skills .skills_content {
+        width: 100%;
+    }
+
+    .Contact form .form_section textarea {
+        width: 300px;
+    }
+
+    header label {
+        font-size: xx-large;
+        display: block;
+    }
+
+    header .nav {
+        position: absolute;
+        left: -100%;
+        width: 100%;
+        top: 100%;
+        flex-direction: column;
+        background-color: #081b29;
+        transition: 0.5s;
+        border-bottom: 3px solid rgb(29, 55, 89);
+    }
+
+    #check:checked~#nav {
+        left: 0%;
+    }
 }
