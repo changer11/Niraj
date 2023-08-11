@@ -272,7 +272,9 @@ section {
 .my_Journey .heading span {
     color: rgb(0, 110, 255);
 }
-
+.my_Journey .heading2{
+    margin-top: 30px;
+}
 /* .my_Journey h3{
     margin-top: 30px;
 } */

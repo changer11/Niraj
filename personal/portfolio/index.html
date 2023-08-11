@@ -33,7 +33,7 @@
                     <ul class="nav" id="nav">
                         <li class="nav-item"><a href="#home" class="nav-link click">Home</a></li>
                         <li class="nav-item"><a href="#about" class="nav-link click">About</a></li>
-                        <li class="nav-item"><a href="#Education" class="nav-link click">Education</a></li>
+                        <li class="nav-item"><a href="#my_Journey" class="nav-link click">Journey</a></li>
                         <li class="nav-item"><a href="#Skills" class="nav-link click">Skills</a></li>
                         <li class="nav-item"><a href="#Contact" class="nav-link click">Contact</a></li>
                     </ul>
@@ -41,9 +41,9 @@
             </div>
         </nav>
     </header>
-    <section id="home">
+    <section >
         <div class="container ">
-            <div class="home">
+            <div class="home" id="home">
                 <div class="home_content">
                     <h1>Hii, I'm <span>Niraj Singh</span></h1>
                     <div class="text-animate">
@@ -97,17 +97,16 @@
                 </div>
             </div>
 
-            <div class="my_Journey" id="Education">
+            <div class="my_Journey" id="my_Journey">
                 <h1 class="heading">My <span>Journey</span></h1>
-                <h3>Education</h3>
+                <h3 class="heading2">Education</h3>
                 <div class="Education">
                     <div class="card">
                         <div class="card-body">
                             <h6><i class="fa fa-calendar"></i>2017-2018</h6>
                             <h3 class="h4"> Secondary School   </h3>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum ex illum optio? Non
-                                expedita exercitationem eos itaque et obcaecati optio ipsam? Iusto perspiciatis dolores,
-                                vitae laudantium ipsum asperiores ut dolorum?
+                            <p>10th from Anugrah Inter School Aurangabad Under BSEB in 2018
+                                     with aggregate 70.8%
                             </p>
                         </div>
                     </div>
@@ -115,20 +114,58 @@
                         <div class="card-body">
                             <h6><i class="fa fa-calendar"></i>2018-2020</h6>
                             <h3 class="h4">Higher Secondary school </h3>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum ex illum optio? Non
-                                expedita exercitationem eos itaque et obcaecati optio ipsam? Iusto perspiciatis dolores,
-                                vitae laudantium ipsum asperiores ut dolorum?
+                            <p> 
+
+                                 12th from Sachidanand Sinha College Aurangabad Under BSEB in 2020 
+                                     with aggregate 70.4%
+                               
+                        
+                               
+                               
                             </p>
                         </div>
-
                     </div>
                     <div class="card">
                         <div class="card-body">
                             <h6><i class="fa fa-calendar"></i>2020-2024</h6>
                             <h3 class="h4"> Degree-University </h3>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum ex illum optio? Non
-                                expedita exercitationem eos itaque et obcaecati optio ipsam? Iusto perspiciatis dolores,
-                                vitae laudantium ipsum asperiores ut dolorum?
+                            <p>
+                                 B.E (Mechanical Engineering) From Anna University in 2024 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="heading2">Project</h3>
+                <div class="Education">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6><i class="fa fa-calendar"></i>2022-2023</h6>
+                            <h3 class="h4"> ERP Tool (Student Management)	  </h3>
+                            <p>
+                                It is basically a web-based school management system. This mainly helps the educational institute to maintain the details related to its students, teachers, parents. This also helps in tracking all details at one place instead of keeping records in a file. Some module like student module.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h6><i class="fa fa-calendar"></i>2022-2023</h6>
+                            <h3 class="h4">Billing Project	 </h3>
+                            <p> 
+
+                                It is basically a web-based billing management system. This mainly helps for invoice and billing efficiency with web online Online accounting software gives a wonderful scope and convenience to easily maintain daily accounting works. Beginning from a taxed invoice to a non-taxed invoice, there is very feature available in online accounting software.
+                               
+                        
+                               
+                               
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h6><i class="fa fa-calendar"></i>2022-2023</h6>
+                            <h3 class="h4">Blog Project</h3>
+                            <p>
+                                It is basically a web-based Blog management system. This is a periodic publication that typically contains a collection of articles, stories, features, photographs, and  advertisements on diverse range of topics. This “Blog image project” suggests a project focused on creating and managing images for a blog. This can improve readability and user engagement. 
                             </p>
                         </div>
                     </div>
@@ -292,7 +329,7 @@
         });
     }
     let sections = document.querySelectorAll('section');
-    let navlinks = document.querySelectorAll("nav header a");
+    let navlinks = document.querySelectorAll("header #nav a");
     window.onscroll = () => {
         sections.forEach(sec => {
             let top = window.scrollY;
@@ -302,7 +339,7 @@
             if (top >= offset && top < offset + height) {
                 navlinks.forEach(links => {
                     links.classList.remove("active");
-                    document.querySelector("header nav a [href*='+ id +']").classList.add("active");
+                    document.querySelector("header #nav a [href*='+ id +']").classList.add("active");
                 }
                 )
             }
