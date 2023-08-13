@@ -182,7 +182,7 @@
                                 invoice to a non-taxed invoice, there is very feature available in online accounting
                                 software.
                             </p>
-                            <a href="https://monumental-nougat-8bbae9.netlify.app/" class="btn">click</a>
+                            <a href="https://invoice-niraj.netlify.app" class="btn">click</a>
                         </div>
                     </div>
                     <div class="card">
@@ -197,7 +197,7 @@
                                 focused on creating and managing images for a blog. This can improve readability and
                                 user engagement.
                             </p>
-                            <a href="https://funny-pavlova-09dc88.netlify.app" class="btn">click</a>
+                            <a href="https://magzine-niraj.netlify.app" class="btn">click</a>
                         </div>
                     </div>
                 </div>
@@ -345,7 +345,7 @@
                 </div>
             </div>
         </div>
-        </section>
+    </section>
 </body>
 <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 <script>
@@ -367,23 +367,6 @@
             }
             this.className += " active";
         });
-    }
-    let sections = document.querySelectorAll('section');
-    let navlinks = document.querySelectorAll("header #nav a");
-    window.onscroll = () => {
-        sections.forEach(sec => {
-            let top = window.scrollY;
-            let offset = sec.offsetTop - 10;
-            let height = sec.offsetHeight;
-            let id = sec.getAttribute("id");
-            if (top >= offset && top < offset + height) {
-                navlinks.forEach(links => {
-                    links.classList.remove("active");
-                    document.querySelector("header #nav a [href*='+ id +']").classList.add("active");
-                }
-                )
-            }
-        })
     }
 </script>
 

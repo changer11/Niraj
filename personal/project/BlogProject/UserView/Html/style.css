@@ -1420,10 +1420,16 @@ h1:hover {
 
     .popular-post-wrap .col-lg-6-single-popular-post img {
         height: 25vh;
-        width: 100%;
-        margin-left: 20px;
+        max-width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
     }
-
+    .popular-post-wrap .col-lg-6-single-popular-post .second_image img{
+        margin-left: 0px;
+    }
+    /* .col-lg-6-single-popular-post img {
+        max-width: 100%;
+    } */
     .popular-post-wrap .col-lg-6-single-popular-post .feature-image-thumb-relative p {
         margin-left: 40px;
         margin-top: 140px;
