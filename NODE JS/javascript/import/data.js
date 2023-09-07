@@ -1,0 +1,27 @@
+module.exports=[
+    {
+        username:"abc",
+        age:12
+    }, {
+        username:"abc",
+        age:12
+    }
+    ,
+    {
+        username:"abc",
+        age:12
+    }
+    ,
+    {
+        username:"abc",
+        age:12
+    },
+    {
+        username:"abc",
+        age:12
+    },
+    {
+        username:"abc",
+        age:12
+    }
+]

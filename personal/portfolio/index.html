@@ -173,7 +173,7 @@
                         <div class="card-body">
                             <img src="./how-to-create-a-website-project-plan.jpg" alt="">
                             <h6><i class="fa fa-calendar"></i>2022-2023</h6>
-                            <h3 class="h4">Billing Project </h3>
+                            <h3 class="h4">Invoice Management</h3>
                             <p>
 
                                 It is basically a web-based billing management system. This mainly helps for invoice and
@@ -309,29 +309,33 @@
                 <form action="">
                     <div class="form_section">
                         <div>
-                            <input type="text" placeholder="First Name" class="form-control" required>
+                            <input type="text" placeholder="First Name" class="form-control" required id="First_Name">
                         </div>
                         <div>
-                            <input type="text" placeholder="Second Name" class="form-control" required>
+                            <input type="text" placeholder="Second Name" class="form-control" required id="Second_Name">
                         </div>
                     </div>
                     <div class="form_section">
                         <div>
-                            <input type="number" placeholder="Phone Number" class="form-control" required>
+                            <input type="number" placeholder="Phone Number" class="form-control" required
+                                id="Phone_Number">
                         </div>
                         <div>
-                            <input type="email" placeholder="Email Id" class="form-control" required>
+                            <input type="email" placeholder="Email Id" class="form-control" required id="email">
                         </div>
                     </div>
                     <div class="form_section">
-                        <textarea name="" id="" placeholder="Your message" class="form-control"></textarea>
+                        <textarea name="" id="message" placeholder="Your message" class="form-control"></textarea>
                         <span>
 
                         </span>
                     </div>
                     <div class="form_section">
-                        <button class="btn"><input type="button" value="Submit"></button>
+                        <button class="btn">
+                            <input type="button" value="Submit" id="GETDATA" onclick="register()">
+                        </button>
                     </div>
+
                 </form>
             </div>
         </div>
@@ -353,8 +357,7 @@
         strings: ['Web Developer.', 'Web Designer.', 'Bgmi Player.', 'Graphic Designer.',],
         typeSpeed: 100,
     });
-</script>
-<script>
+    // nav onclick active class process start
     var btnContainer = document.getElementById("nav");
     // Get all buttons with class="btn" inside the container
     var btns = btnContainer.getElementsByClassName("click");
@@ -368,6 +371,8 @@
             this.className += " active";
         });
     }
+// nav onclick active class process end
 </script>
+<script src="./script.js"></script>
 
 </html>

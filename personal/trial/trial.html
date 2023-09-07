@@ -3,89 +3,42 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../Style Sheet/circle.css">
+    <style>
+        div{
+            font-size: smaller;
+            height: 10px;
+            width: 100%;
+            border-radius:5px;
+            /* border: 1px solid rgb(229, 213, 213); */
+            background-color: rgb(245, 229, 229);
+            position: relative;
+        }
+        span:nth-child(1){
+            background-color: rgb(234, 20, 20);
+            width: 30%;
+            height: 10px;
+            position: absolute;
+            content: "70%";
+            color: white;
+            display: flex;
+            justify-content: center;
+            font-size: smaller;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius:5px ;
+        }
+    </style>
 </head>
-<style>
-    body{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-
-}
-.circle{
-    position: relative;
-    width: 400px;
-    height: 400px;
-    background: linear-gradient( rgb(0, 191, 255),#eb0707);
-    border-radius: 50%;
-    animation: animate 0.9s linear infinite;
-}
-
-@keyframes animate{
-   from {
-transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(360deg);
-    }
-}
-.circle::after{
-    content: '';
-    position: absolute;
-    top: 36px;
-    right: 36px;
-    bottom: 36px;
-    left: 36px;
-    background-color: black;
-    border-radius: 50%;
-
-}
-.circle span{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient( #3cff,#ff0066);
-    border-radius: 50%;
-}
-.circle span:nth-child(1){
-    filter: blur(6px);
-}
-.circle span:nth-child(2){
-    filter:blur(10px);
-}
-.circle span:nth-child(3){
-    filter:blur(30px);
-}
-.circle span:nth-child(4){
-    filter:blur(60px);
-}
-</style>
 
 <body>
-    <div class="circle">
-        <span></span>
-        <span></span>
-        <span></span>
+    <div>
+        <span>
+            92%
+        </span>
         <span></span>
     </div>
+
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
