@@ -1,1 +1,2 @@
-console.log("hjfi");
+const colors=require('colors')
+console.log("hjfi".bgBlue);
