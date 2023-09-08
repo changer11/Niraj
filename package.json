@@ -16,6 +16,7 @@
   "author": "niraj singh",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^5.3.0",
     "colors": "^1.4.0",
     "simple-node-logger": "^21.8.12"
   }
