@@ -18,7 +18,7 @@ http.createServer((req, res) => {
     res.end()
 }).listen(4200);
 http.createServer((req,res)=>{
-    res.write('<h1> <a href="http://localhost:4200/"> java</a></h1>');
+    res.write('<h1> <a href="http://localhost:4200/">click java</a></h1>');
     res.end()
 }).listen(4500);
 
