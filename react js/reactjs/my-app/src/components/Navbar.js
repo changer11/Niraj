@@ -1,8 +1,7 @@
-import react from "react";
 export default function Navbar(props) {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary ">
         <div className="container">
           <a className="navbar-brand" href="/">
             {props.title}
@@ -34,9 +33,14 @@ export default function Navbar(props) {
           </div>
         </div>
       </nav>
-      <div className="text-center bg-danger container rounded-3">
-      <p className="text-white">welcome to our page</p>
+      <div className="text-center bg-danger container rounded-3 pb-2 pt-2 mt-2 h3">
+      <p className="text-white p-0 m-0">welcome to React page</p>
     </div>
     </>
   );
 }
+// Navbar.propTypes={
+//   title:PropTypes.string,
+//   home:PropTypes.string,
+//   Aboutus:PropTypes.string
+// }

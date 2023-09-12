@@ -1,6 +1,6 @@
 const http = require('http')
 const colors = require('colors')
-const data = require("./../../javascript/import/data.json")
+const data = require("./../../../javascript/import/data.json")
 http.createServer((req, res) => {
     for (i = 0; i < data.length; i++) {
         let moviedata = data[i]
