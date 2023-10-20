@@ -1,2 +1,2 @@
 const colors=require('colors')
-console.log("hjfi".bgBlue);
+console.log("hjfifrgtthjuu".bgBlue);

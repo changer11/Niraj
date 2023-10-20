@@ -7,7 +7,5 @@ let result1 = data.filter((item) => {
     return item > 55;
 });
 console.log(result1);
-let result2 = data.filter((item) => {
-    return item < 55;
-});
+let result2 = data.filter((item) => item < 55);
 console.log(result2);
