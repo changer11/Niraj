@@ -21,7 +21,7 @@ const Tech = (probs) => {
         </div>
       ))}
     </div>
-    <div className="absolute bottom-[-20px] w-full flex justify-center">
+    <div className="absolute bottom-[-20px]  w-[92%] flex justify-center">
             <Link
               className="w-[64px] h-[15px] rounded-3xl border-2 border-secondary flex items-center"
               to="/project"

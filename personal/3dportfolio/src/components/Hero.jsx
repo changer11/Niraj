@@ -47,7 +47,7 @@ const Hero = (probs) => {
         </div>
         <ComputersCanvas />
         <div className="absolute   w-full flex justify-center items-center 
-        bottom-16 xs:bottom-10">
+        bottom-28 xs:bottom-10">
           <Link
             className="w-[64px] h-[15px] rounded-3xl border-2 border-secondary flex items-center"
             to="/about"

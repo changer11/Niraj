@@ -4,9 +4,8 @@ import creator from "./creator.png";
 import mobile from "./mobile.png";
 import web from "./web.png";
 import github from "./github.png";
-import menu from "./menu.svg";
+import menu from "./menu.png";
 import close from "./close.svg";
-
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
 import figma from "./tech/figma.png";
@@ -25,6 +24,7 @@ import Livepure from "./company/Livepure.png";
 import carrent from "./Magzine.jpg";
 import jobit from "./jobit.png";
 import tripguide from "./Knowledge hut.png";
+import profileimg from "./changer low light.jpg"
 export {
   logo,
   backend,
@@ -52,4 +52,5 @@ export {
   carrent,
   jobit,
   tripguide,
+  profileimg
 };

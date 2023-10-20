@@ -6,6 +6,7 @@ import { services } from "./../constants";
 import { staggerContainer } from "../utils/motion";
 import { fadeIn } from "./../utils/motion";
 import { Link } from "react-router-dom";
+import { profileimg } from "../assets";
 const ServiceCard = ({ index, title, icon }) => (
   <Tilt className="xs:w-[250px] w-full">
     <motion.div
@@ -41,42 +42,55 @@ const About = (probs) => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
-        className={`${styles.padding} max-w-7xl mx-auto relative z-0 top-10`}
+        className={`${styles.padding} max-w-7xl mx-auto relative z-0  top-10 `}
       >
-          <motion.div>
-            <p className={`${styles.sectionSubText}`}>Indroduction</p>
-            <h2 className={`${styles.sectionHeadText}`}>Overview</h2>
-          </motion.div>
-          <motion.p
-            variants={fadeIn("", "", 0.1, 1)}
-            className="mt-4 text-secondary text-[17px]"
-          >
-            I am a Passionate MERN full-stack developer with a proven track record of building dynamic web applications.Proficient in both front-end and back-end technologies, with a focus on creating efficient and user-friendly digital experiences. Adept at problem-solving and collaborating within agile teams to deliver high-quality solutions.
-            <div className="mt-20  flex flex-wrap gap-10 text-white justify-center">
-              {services.map((service, index) => (
-                <ServiceCard key={service.title} index={index} {...service} />
-              ))}
+        <motion.div>
+          <div className="flex items-start xs:flex-row xs:items-center justify-between flex-col-reverse">
+            <div className="xs:w-[40%] flex xs:justify-start items-center w-full xs:mt-0 mt-6">
+              <a href={profileimg}><img src={profileimg} alt="" className="rounded-[20px]" /></a>
             </div>
-          </motion.p>
-          <div className="absolute bottom-[-20px] w-full flex justify-center">
-            <Link
-              className="w-[64px] h-[15px] rounded-3xl border-2 border-secondary flex items-center"
-              to="/work"
-              onClick={()=>{probs.setActive("Work")}}
-            >
-              <motion.div
-                animate={{
-                  x: [48, 0, 48],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                }}
-                className="w-2 h-2 rounded-full bg-secondary mb-1 mt-1"
-              ></motion.div>
-            </Link>
+            <div className="">
+              <p className={`${styles.sectionSubText}`}>Indroduction</p>
+              <h2 className={`${styles.sectionHeadText}`}>Overview</h2>
+            </div>
           </div>
+        </motion.div>
+        <motion.p
+          variants={fadeIn("", "", 0.1, 1)}
+          className=" xs:mt-14 text-secondary text-[17px] mt-7"
+        >
+          I am a Passionate MERN full-stack developer with a proven track record
+          of building dynamic web applications.Proficient in both front-end and
+          back-end technologies, with a focus on creating efficient and
+          user-friendly digital experiences. Adept at problem-solving and
+          collaborating within agile teams to deliver high-quality solutions.
+          <div className="xs:mt-20 mt-10 flex flex-wrap gap-10 text-white justify-center">
+            {services.map((service, index) => (
+              <ServiceCard key={service.title} index={index} {...service} />
+            ))}
+          </div>
+        </motion.p>
+        <div className="absolute bottom-[-20px] flex justify-center w-[92%]">
+          <Link
+            className="w-[64px] h-[15px]  rounded-3xl border-2 border-secondary flex items-center"
+            to="/work"
+            onClick={() => {
+              probs.setActive("Work");
+            }}
+          >
+            <motion.div
+              animate={{
+                x: [48, 0, 48],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+              className="w-2 h-2 rounded-full bg-secondary mb-1 mt-1"
+            ></motion.div>
+          </Link>
+        </div>
       </motion.section>
     </>
   );

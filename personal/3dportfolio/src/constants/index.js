@@ -153,7 +153,7 @@ const experiences = [
     company_name: "Bharat Intern",
     icon: bharatintern,
     iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
+    date: "Sep 2023 - Oct 2023",
     points: [
       "Developing and maintaining web applications using React.js and other related technologies.",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",

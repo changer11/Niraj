@@ -14,7 +14,7 @@ const Navbar = (probs) => {
         <Link to="/" 
         className='flex items-center gap-2'
         onClick={()=>{
-          setActive("");
+          probs.setActive("");
           window.scrollTo(0,0);
         }}
         >
@@ -37,7 +37,7 @@ const Navbar = (probs) => {
           {navLinks.map((link)=>(
             <li key={link.id} 
             onClick={()=>{
-              setActive(link.title);setTogglle(!toggle);
+              probs.setActive(link.title);setTogglle(!toggle);
             }}>
             <Link to={`/${link.id}`}>{link.title}</Link>
             </li>

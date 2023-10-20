@@ -16,7 +16,7 @@ function App() {
   console.log(Active);
   return (
     <BrowserRouter>
-      <div className="bg-primary pb-28">
+      <div className="bg-primary pb-28 w-full">
           <Navbar Active={Active}  setActive={setActive}/>
         <Routes>
           <Route path="/" element={
