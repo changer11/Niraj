@@ -44,15 +44,15 @@ const About = (probs) => {
         viewport={{ once: true, amount: 0.25 }}
         className={`${styles.padding} max-w-7xl mx-auto relative z-0  top-10 `}
       >
-        <motion.div>
+        <motion.div variants={fadeIn("", "", 0.1, 1)}>
           <div className="flex items-start xs:flex-row xs:items-center justify-between flex-col-reverse">
             <div className="xs:w-[40%] flex xs:justify-start items-center w-full xs:mt-0 mt-6">
               <a href={profileimg}><img src={profileimg} alt="" className="rounded-[20px]" /></a>
             </div>
-            <div className="">
+            <motion.div variants={fadeIn("", "", 0.3, 1)}>
               <p className={`${styles.sectionSubText}`}>Indroduction</p>
               <h2 className={`${styles.sectionHeadText}`}>Overview</h2>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
         <motion.p
