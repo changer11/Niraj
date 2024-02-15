@@ -9,6 +9,7 @@ const Addpatient = () => {
   const [Gender, setGender] = useState("Male");
   const [Address, SetAddress] = useState("");
   const [File, SetFile] = useState("");
+  const [loader, setloader] = useState(false);
   const [confirm, setconfirm] = useState(false);
   const HandleOnsubmit = async (e) => {
     e.preventDefault();
@@ -23,6 +24,7 @@ const Addpatient = () => {
       file: File,
     };
     if (confirm) {
+      setloader(true)
       let res = await fetch("http://localhost:4000/patient", {
         method: "POST",
         body: JSON.stringify(Data),
@@ -30,6 +32,7 @@ const Addpatient = () => {
       });
       let res_data = await res.json();
       if (res_data === "Patient added successfully") {
+        setloader(false)
         alert(res_data);
         setAge("");
         setGender("Male");
@@ -40,6 +43,7 @@ const Addpatient = () => {
         SetDob("");
         SetEmail("");
       } else {
+        setloader(false)
         alert(res_data);
       }
     } else {
@@ -49,6 +53,7 @@ const Addpatient = () => {
   return (
     <div className="xl:m-5 sm:m-0 ">
       <div className="bg-[hsl(0,0%,100%)] p-3">
+      <div className={`${loader?"blur":null}`}>
         <h1 className="text-[rgb(229,116,152)] h4">Add Patient</h1>
         <form action="" onSubmit={HandleOnsubmit}>
           <div className="row max-sm:block">
@@ -246,6 +251,12 @@ const Addpatient = () => {
           </div>
         </div>
       </div>
+      {loader ? (
+          <div className={`absolute top-[43%] left-[42%]  `}>
+            <div class="spinner-border text-primary border-[7px] w-[80px] h-[80px]"></div>
+          </div>
+        ) : null}
+        </div>
     </div>
   );
 };

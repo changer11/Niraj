@@ -20,8 +20,8 @@ async function Appointment() {
     problem: { type: String, required: true },
     status: {
       type: String,
-      enum: ["pending", "completed", "cancelled"],
-      default: "completed",
+      enum: ["Pending", "Completed", "Cancelled"],
+      default: "Pending",
     },
   });
 
@@ -40,6 +40,11 @@ async function Patient() {
     gender: { type: String, required: true },
     address: { type: String, required: true },
     file: { type: String, required: true },
+    status: {
+      type: String,
+      enum: ["Pending", "Completed", "Cancelled"],
+      default: "Pending",
+    },
   });
   const patient_Collection =
     (await MGConnection()).models["patients"] ||
@@ -58,6 +63,11 @@ async function Doctor() {
     email: { type: String, required: true },
     address: { type: String, required: true },
     doctordetail: { type: String, required: true },
+    Availability: {
+      type: String,
+      enum: ["on Leave", "Not Available", "Available"],
+      default: "Not Available",
+    },
     file: { type: String, required: true },
   });
   const Doctor_Collection =
@@ -78,15 +88,15 @@ async function payment() {
       cost: { type: Object, required: true },
     },
     payment: {
-      discount: { type: String, required: true },
+      discount: { type: Number },
       type: { type: String, required: true },
       advancePaid: { type: Number, default: 0 },
       cardCheckNumber: { type: Number },
     },
     status: {
       type: String,
-      enum: ["pending", "completed", "cancelled"],
-      default: "completed",
+      enum: ["Pending", "Completed", "Cancelled"],
+      default: "Pending",
     },
   });
   const paymrnt_Collection =
@@ -109,7 +119,7 @@ async function Room() {
   return Room_Collection;
 }
 
-async function Register() {
+async function patientRegister() {
   const user_Schema = new mongoose.Schema({
     Username: { type: String, required: true },
     password: { type: String, required: true },
@@ -117,8 +127,27 @@ async function Register() {
     phone: { type: Number, required: true },
   });
   const user_Collection =
-    (await MGConnection()).models["users"] ||
-    (await MGConnection()).model("users", user_Schema);
+    (await MGConnection()).models["patientusers"] ||
+    (await MGConnection()).model("patientusers", user_Schema);
+  return user_Collection;
+}
+async function DoctorRegister() {
+  const user_Schema = new mongoose.Schema({
+    Username: { type: String, required: true },
+    password: { type: String, required: true },
+    Email: { type: String, required: true },
+    phone: { type: Number, required: true },
+    Doctordegree: { type: String, required: true },
+    status: {
+      type: String,
+      required: true,
+      enum: ["Pending", "Cancelled", "Approved"],
+      default: "Pending",
+    },
+  });
+  const user_Collection =
+    (await MGConnection()).models["doctorusers"] ||
+    (await MGConnection()).model("doctorusers", user_Schema);
   return user_Collection;
 }
 function Login() {
@@ -130,4 +159,12 @@ function Login() {
     MGConnection().models["login"] || mongoose.model("login", login_schema)
   );
 }
-module.exports = { Appointment, Patient, Doctor, payment, Room, Register };
+module.exports = {
+  Appointment,
+  Patient,
+  Doctor,
+  payment,
+  Room,
+  patientRegister,
+  DoctorRegister,
+};

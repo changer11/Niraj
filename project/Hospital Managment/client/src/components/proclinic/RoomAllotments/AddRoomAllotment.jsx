@@ -1,13 +1,15 @@
 import { React, useState } from "react";
 const AddRoom = () => {
   const [RoomNumber, setRoomNumber] = useState("");
-  const [RoomType, setRoomType] = useState("Neuro");
+  const [RoomType, setRoomType] = useState("ICU");
   const [Patient_Name, setPatient_Name] = useState("");
   const [Allotment_Date, setAllotment_Date] = useState("");
+  console.log(RoomType);
   const [Discharge_Date, setDischarge_Date] = useState("10AM-11AM");
   const [Doctor_Name, setDoctor_Name] = useState("");
   const [Confirm, setconfirm] = useState(false);
-  const HandleOnsubmit = (e) => {
+  const [loader, setloader] = useState(false);
+  const HandleOnsubmit = async (e) => {
     e.preventDefault();
     let url = "http://localhost:4000/Room";
     let data = {
@@ -18,30 +20,37 @@ const AddRoom = () => {
       Discharge_Date,
       Doctor_Name,
     };
-    console.log(data);
     if (Confirm) {
-      fetch(url, {
+      setloader(true)
+      let res = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
-      }).then((res) => console.log(res.json()));
-      console.log(data);
-      alert("registeration success");
-      setRoomNumber("");
-      setAllotment_Date("");
-      setRoomType("");
-      setconfirm(false);
-      setPatient_Name("");
-      setDoctor_Name("");
-      setDischarge_Date("");
+      });
+      let res_data = await res.json();
+      if (res_data === "Room Succesfully Added") {
+        setloader(false)
+        alert(res_data);
+        setRoomNumber("");
+        setAllotment_Date("");
+        setRoomType("");
+        setconfirm(false);
+        setPatient_Name("");
+        setDoctor_Name("");
+        setDischarge_Date("");
+      } else {
+        setloader(false);
+        alert(res_data);
+      }
     } else {
       alert("please confirm it");
     }
   };
   return (
     <div className="xl:m-5 sm:m-0 ">
-      <div className="bg-[hsl(0,0%,100%)] p-3">
-        <h1 className="text-[rgb(229,116,152)] h4 border-b border-spacing-2 pb-2">
+      <div className="bg-[hsl(0,0%,100%)] p-3 relative">
+       <div className={`${loader?"blur":null}`}>
+       <h1 className="text-[rgb(229,116,152)] h4 border-b border-spacing-2 pb-2">
           Add Room Allotment
         </h1>
         <form action="" onSubmit={HandleOnsubmit}>
@@ -81,7 +90,7 @@ const AddRoom = () => {
                   value={RoomType}
                   onChange={(e) => setRoomType(e.target.value)}
                 >
-                  <option value="Neuro" defaultValue={"ICU"}>
+                  <option  defaultValue={"ICU"}>
                     ICU
                   </option>
                   <option value="General">General</option>
@@ -213,6 +222,14 @@ const AddRoom = () => {
             that might need attention.
           </div>
         </div>
+       </div>
+      
+        {loader ? (
+          <div className={`absolute top-[43%] left-[42%]  `}>
+            <div class="spinner-border text-primary border-[7px] w-[80px] h-[80px]"></div>
+          </div>
+        ) : null}
+      
       </div>
     </div>
   );

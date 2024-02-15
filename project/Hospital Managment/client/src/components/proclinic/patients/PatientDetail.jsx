@@ -13,29 +13,29 @@ const PatientDetail = () => {
               <thead>
                 <tr>
                   <th>Patient Name</th>
-                  <td>	Daniel Smith</td>
+                  <td> Daniel Smith</td>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                    <th>Date Of Birth</th>
-                    <td>xxxxx</td>
+                  <th>Date Of Birth</th>
+                  <td>xxxxx</td>
                 </tr>
                 <tr>
-                    <th>Gender</th>
-                    <td>xxxx</td>
+                  <th>Gender</th>
+                  <td>xxxx</td>
                 </tr>
                 <tr>
-                    <th>Address</th>
-                    <td>xxxx</td>
+                  <th>Address</th>
+                  <td>xxxx</td>
                 </tr>
                 <tr>
-                    <th>Phone</th>
-                    <td>xxxxx</td>
+                  <th>Phone</th>
+                  <td>xxxxx</td>
                 </tr>
                 <tr>
-                    <th>Email</th>
-                    <td>xxxx</td>
+                  <th>Email</th>
+                  <td>xxxx</td>
                 </tr>
               </tbody>
             </table>

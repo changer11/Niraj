@@ -374,7 +374,7 @@ const menu = [
     id:1,
     menu_icon: "fa fa-bars",
     color:"bg-black text-white",
-    zoom_icon: "material-icons",
+    zoom_icon: "fa fa-expand",
     search_icon: "fa fa-search",
     Notification_icon: "fa fa-bell",
     user_icon: "fa fa-user",

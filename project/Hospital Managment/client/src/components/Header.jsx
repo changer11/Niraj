@@ -1,13 +1,17 @@
-import { React } from "react";
+import { React, useMemo } from "react";
 import { menu, headernav } from "../constant";
 import { logodark } from "../assets";
 import { fadeIn, staggerContainer } from "../utils/motion";
 import { motion } from "framer-motion";
 import "react-vertical-timeline-component/style.min.css";
 import { useEffect, useState } from "react";
-import { VerticalTimelineElement } from "react-vertical-timeline-component";
-export const Header = (probs,{event}) => {
+import { useNavigate } from "react-router-dom";
+export const Header = (probs, { event }) => {
   const [isMobile, setIsMobile] = useState(false);
+  const [userbox, setuserbox] = useState(false);
+  const [usernotification, setusernotification] = useState(false);
+  const [auth, setauth] = useState(false);
+  const Navigate = useNavigate();
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width:800px)");
     setIsMobile(mediaQuery.matches);
@@ -19,9 +23,39 @@ export const Header = (probs,{event}) => {
       mediaQuery.removeEventListener("change", handleonchange);
     };
   }, []);
+  useEffect(() => {
+    let currentURL = window.location.href;
+    if (currentURL === "http://localhost:5173/VerifyDoctor") {
+      probs.settitle("Doctor");
+      probs.setheadertitle("Pending data");
+    } else if (currentURL === "http://localhost:5173/Verifypatient") {
+      probs.settitle("Patient");
+      probs.setheadertitle("Pending data");
+    } else if (currentURL === "http://localhost:5173/Verifypayment") {
+      probs.settitle("Payment");
+      probs.setheadertitle("Pending data");
+    } else if(currentURL === "http://localhost:5173/Verifyappointment") {
+      probs.settitle("Appointment");
+      probs.setheadertitle("Pending data");
+    }
+  });
+  const userdata = localStorage.getItem("users");
+  useMemo(() => {
+    if (userdata != null) {
+      setauth(true);
+    } else {
+      setauth(false);
+    }
+  }, [userdata]);
+  const HandleOnLogout = () => {
+    localStorage.removeItem("users");
+    alert("Logged out");
+    Navigate("/Login");
+  };
+
   return (
     <>
-<div className={`sticky top-0 z-30 ${probs.islogin}`}>
+      <div className={`sticky top-0 z-30 ${probs.islogin}`}>
         <div className={`${isMobile ? "w-[100%]" : "w-full"} `}>
           <div className="sticky z-30 top-0 bg-white">
             <motion.section
@@ -48,32 +82,173 @@ export const Header = (probs,{event}) => {
                         <i className={`${e.menu_icon} text-[20px]`}></i>
                       </span>
                       <span
-                        className={`h-10 w-10 bg-[#c1bbbb] flex items-center justify-center rounded-[50%]`}
+                        className={`h-10 w-10 bg-[#c1bbbb] flex items-center justify-center rounded-[50%] cursor-pointer`}
+                        onClick={() => {
+                          if (document.documentElement.requestFullscreen()) {
+                            document.exitFullscreen();
+                          } else {
+                            document.documentElement.requestFullscreen();
+                          }
+                        }}
                       >
                         <i className={`${e.zoom_icon} text-[20px]`}></i>
                       </span>
-                      <span
-                        className={`h-10 w-10 bg-[#c1bbbb] flex items-center justify-center rounded-[50%] `}
-                      >
-                        <i className={`${e.Notification_icon} text-[20px]`}></i>
-                      </span>
-                      <span
-                        className={`h-10 w-10 bg-[#c1bbbb] flex items-center justify-center rounded-[50%] `}
-                      >
-                        <button
-                          type="button"
-                          className="btn"
-                          data-bs-toggle="modal"
-                          data-bs-target="#myModal"
+                      {auth ? (
+                        <div className="relative">
+                          <span
+                            className={`h-10 w-10 bg-[#c1bbbb] flex items-center justify-center rounded-[50%] cursor-pointer `}
+                            onClick={() => {
+                              usernotification
+                                ? setusernotification(false)
+                                : setusernotification(true);
+                            }}
+                          >
+                            <i
+                              className={`${e.Notification_icon} text-[20px]`}
+                            ></i>
+                          </span>
+
+                          <div
+                            className={`absolute right-[3px] max-sm:right-[-112px]   transition-all rotate-360 mt-[-8px] ${
+                              usernotification
+                                ? "w-[270px]"
+                                : "w-0 overflow-hidden"
+                            } `}
+                          >
+                            <div className="flex justify-end max-sm:justify-center xl:me-[8px]">
+                              <div className=" h-5 w-5 bg-[hsl(75,2%,34%)] rotate-45 transform origin-bottom-left "></div>
+                            </div>
+                            <div className="bg-white relative rounded-lg">
+                              <div className="bg-[hsl(75,2%,34%)] text-white p-3">
+                                <h1 className="card_header text-lg font-semibold">
+                                  Notifications
+                                </h1>
+                              </div>
+
+                              <div className=" border-[hsl(0,6%,87%)] border-[2px]">
+                                <div className="p-3 ">
+                                  <i className="fa fa-wheelchair me-2 text-[hsl(214,79%,58%)]"></i>
+                                  <span
+                                    className="cursor-pointer"
+                                    onClick={() => {
+                                      Navigate("/Verifypatient");
+                                      setusernotification(false);
+                                      probs.settitle("Patient");
+                                      probs.setheadertitle("Pending data");
+                                    }}
+                                  >
+                                    New Patient Added
+                                  </span>
+                                </div>
+                                <div className="p-3">
+                                  <i className="fa fa-dollar me-[15px]  text-[hsl(326,76%,55%)]"></i>
+                                  <span
+                                    onClick={() => {
+                                      Navigate("/Verifypayment");
+                                      setusernotification(false);
+                                      probs.settitle("Payment");
+                                      probs.setheadertitle("Pending data");
+                                    }}
+                                    className="cursor-pointer"
+                                  >
+                                    Patient Payment Done
+                                  </span>
+                                </div>
+                                <div className="p-3">
+                                  <i className="fa fa-edit me-2  text-[#3f89e9]"></i>
+                                  <span
+                                    className="cursor-pointer"
+                                    onClick={() => {
+                                      Navigate("/Verifyappointment");
+                                      setusernotification(false);
+                                      probs.settitle("appointment");
+                                      probs.setheadertitle("Pending data");
+                                    }}
+                                  >
+                                    Patient Appointment Booked
+                                  </span>
+                                </div>
+                                <div className="p-3">
+                                  <i className="fa fa-edit me-2  text-[#3f89e9]"></i>
+                                  <span
+                                    className="cursor-pointer"
+                                    onClick={() => {
+                                      setusernotification(false);
+                                      Navigate("/DoctorApproval");
+                                      probs.settitle("Doctor");
+                                      // probs.setheadertitle("Pending data");
+                                    }}
+                                  >
+                                    Doctor pending list
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ) : null}
+                      <div className="relative">
+                        <span
+                          className={`h-10 w-10 bg-[#c1bbbb] flex items-center justify-center rounded-[50%] `}
                         >
-                          <i className={`${e.search_icon} text-[20px]`}></i>
-                        </button>
-                      </span>
-                      <span
-                        className={`h-10 w-10 bg-[#c1bbbb] flex items-center justify-center rounded-[50%]`}
-                      >
-                        <i className={`${e.user_icon} text-[20px]`}></i>
-                      </span>
+                          <button
+                            type="button"
+                            className="btn"
+                            data-bs-toggle="modal"
+                            data-bs-target="#myModal"
+                          >
+                            <i className={`${e.search_icon} text-[20px]`}></i>
+                          </button>
+                        </span>
+                      </div>
+                      {auth ? (
+                        <div className="relative">
+                          <span
+                            className={`h-10 w-10 bg-[#c1bbbb] flex items-center justify-center rounded-[50%] cursor-pointer`}
+                            onClick={() => {
+                              userbox ? setuserbox(false) : setuserbox(true);
+                            }}
+                          >
+                            <i className={`${e.user_icon} text-[20px]`}></i>
+                          </span>
+
+                          <div
+                            className={`absolute right-[5px]  transform  mt-[-8px] transition-all ${
+                              userbox ? " w-[200px]" : "w-0 overflow-hidden"
+                            }`}
+                          >
+                            <div className="flex justify-end me-[8px]">
+                              <div className=" h-5 w-5 bg-[hsl(75,2%,34%)] rotate-45 transform origin-bottom-left "></div>
+                            </div>
+                            <div className="bg-white relative rounded-lg">
+                              <div className="bg-[hsl(75,2%,34%)] text-white p-3">
+                                <h1 className="card_header text-lg font-semibold">
+                                  Niraj Singh
+                                </h1>
+                              </div>
+                              <div className=" border-[hsl(0,6%,87%)] border-[2px]">
+                                <div className="p-3 ">
+                                  <i className="fa fa-gear me-2 text-[hsl(214,79%,58%)]"></i>
+                                  <span>Setting</span>
+                                </div>
+                                <div className="p-3">
+                                  <i className="fa fa-question-circle me-2  text-[hsl(326,76%,55%)]"></i>
+                                  <span>Help</span>
+                                </div>
+                                <div className="p-3">
+                                  <i className="fa fa-sign-out me-2  text-[hsl(214,79%,58%)]"></i>
+                                  <span
+                                    onClick={HandleOnLogout}
+                                    className="cursor-pointer"
+                                  >
+                                    Logout
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ) : null}
                     </li>
                   ))}
                 </ul>
@@ -91,7 +266,11 @@ export const Header = (probs,{event}) => {
                         {probs.Title}
                       </p>
                     </div>
-                    <div className={`bg-[#C85A95] ps-3 pe-3 pt-2 pb-2 rounded-full ${isMobile?"hidden":"block"}`}>
+                    <div
+                      className={`bg-[#C85A95] ps-3 pe-3 pt-2 pb-2 rounded-full ${
+                        isMobile ? "hidden" : "block"
+                      }`}
+                    >
                       <p className={`${isMobile ? "text-sm" : "text-lg"}`}>
                         <i className={`${e.icon}`}></i>
                         <span
@@ -125,14 +304,12 @@ export const Header = (probs,{event}) => {
                     </div>
                   </div>
                 ))}
-
-                <div className="h-full bg-black"></div>
               </motion.div>
             </motion.section>
           </div>
         </div>
       </div>
-      <div className="modal overflow-hidden" id="myModal">
+      <div className="modal transition-all" id="myModal">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header bg-black text-white">

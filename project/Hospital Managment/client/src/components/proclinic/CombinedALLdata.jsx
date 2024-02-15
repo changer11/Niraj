@@ -34,6 +34,10 @@ import { fadeIn, staggerContainer } from "../../utils/motion";
 import { motion } from "framer-motion";
 import Login from "./Otherpages/Login";
 import SignUp from "./Otherpages/SignUp";
+import Verifypatient from "./patients/Verifypatient";
+import Verifyappointment from "./Appointments/Verifyappointment";
+import Verifypayment from "./payments/VerifyPayment";
+import VerifyDoctor from "./Doctor/VerifyDoctor";
 
 const CombinedAlldata = ({ setloginmode }) => {
   return (
@@ -83,6 +87,14 @@ const CombinedAlldata = ({ setloginmode }) => {
             path="/SignUp"
             element={<SignUp setloginmode={setloginmode} />}
           />
+          <Route path="/VerifyDoctor" element={<VerifyDoctor />} />
+          <Route path="/Verifypatient" element={<Verifypatient />} />
+          <Route
+            path="/Verifyappointment"
+            exact
+            element={<Verifyappointment />}
+          />
+          <Route path="/Verifypayment" element={<Verifypayment />} />
         </Routes>
       </motion.div>
     </motion.section>

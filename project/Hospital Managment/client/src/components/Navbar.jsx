@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 const Navbar = (probs) => {
   const [active, setactive] = useState("");
   const [isMobile, setIsMobile] = useState(false);
+  const [auth, setauth] = useState(false);
   const Navigate = useNavigate();
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width:800px)");
@@ -32,7 +33,15 @@ const Navbar = (probs) => {
       });
     });
   }, []);
-
+  //  auth check
+  useEffect(() => {
+    let userdata = localStorage.getItem("users");
+    if (userdata === null) {
+      setauth(false);
+    } else {
+      setauth(true);
+    }
+  });
   return (
     <div className={`${probs.islogin}`}>
       <motion.section
@@ -52,18 +61,18 @@ const Navbar = (probs) => {
             } `}
           >
             <div
-              className={`${isMobile ? probs.navstyle : ""} ${
+              className={`${isMobile ? probs.navheadervisiblity : ""} ${
                 isMobile
                   ? probs.dispalyreverse
                     ? `w-[70px] z-50 absolute right-0 ${probs.mobileview}`
                     : `w-[70px] z-50 absolute  ${probs.mobileview}`
-                  : `${probs.navwidth} relative`
+                  : `${probs.navwidth} relative transition-all`
               } bg-[#C85A95] `}
             >
               <div className="pb-3 ">
                 <div
                   className={`${
-                    isMobile ? "hidden" : probs.navstyle
+                    isMobile ? "hidden" : probs.navheadervisiblity
                   } pt-4 pb-4 ps-3`}
                 >
                   <Link to="/">
@@ -89,7 +98,8 @@ const Navbar = (probs) => {
                           }`}
                           key={id}
                           onClick={() => {
-                            active === "" ? setactive(title) : setactive("");
+                            active === title ? setactive("") : setactive(title);
+                            console.log(active);
                           }}
                         >
                           <Link to={url}>
@@ -109,7 +119,11 @@ const Navbar = (probs) => {
                                     active === title
                                       ? "selection:bg-[#555555]"
                                       : "selection:bg-[#C85A95]"
-                                  } ${isMobile ? "hidden" : probs.navstyle}`}
+                                  } ${
+                                    isMobile
+                                      ? "hidden"
+                                      : probs.navheadervisiblity
+                                  }`}
                                   onClick={() => {
                                     title === "Tables" || title === "Forms"
                                       ? probs.settitle(title)
@@ -125,7 +139,9 @@ const Navbar = (probs) => {
                             <i
                               className={`${toggle} text-[15px] transition-transform  ${
                                 active === title ? "rotate-180" : "rotate-0 "
-                              } ${isMobile ? "hidden" : probs.navstyle}`}
+                              } ${
+                                isMobile ? "hidden" : probs.navheadervisiblity
+                              }`}
                             ></i>
                           </div>
                         </li>
@@ -144,15 +160,62 @@ const Navbar = (probs) => {
                                 : ""
                             }`}
                           >
-                            {collapseitem.map((e) => (
+                            {collapseitem.map((e) =>
+                              e.item === "Login" || e.item === "Sign Up" ? (
+                                auth ? null : (
+                                  <li
+                                    className={`transition-all selection:bg-[#6c757d] ${
+                                      active === title
+                                        ? auth
+                                          ? " w-0 h-0 overflow-hidden"
+                                          : "w-[100%] pt-2 pb-2 ps-3"
+                                        : "w-0 h-0 overflow-hidden"
+                                    } translate-x-5`}
+                                    key={e.id}
+                                  >
+                                    <Link to={`/${e.url}`}>
+                                      <span
+                                        className="cursor-pointer text-[16px] "
+                                        onClick={() => {
+                                          e.item === "Vertical" ||
+                                          e.item === "Vertical Rtl" ||
+                                          e.item === "Horizontal"
+                                            ? probs.settitle("Quick Statistics")
+                                            : probs.settitle(e.item);
+                                          title === "Dashboard"
+                                            ? probs.setheadertitle("")
+                                            : probs.setheadertitle(title);
+                                          isMobile
+                                            ? probs.SetNavheadervisiblity(
+                                                "hidden"
+                                              )
+                                            : "";
+                                          e.item === "Vertical"
+                                            ? probs.setdisplayreverse("")
+                                            : "";
+                                          e.item === "Vertical Rtl"
+                                            ? probs.setdisplayreverse(
+                                                "flex-row-reverse"
+                                              )
+                                            : "";
+                                          e.item === "Login" ||
+                                          e.item === "Sign Up"
+                                            ? probs.setislogin("hidden")
+                                            : false;
+                                        }}
+                                      >
+                                        {e.item}
+                                      </span>
+                                    </Link>
+                                  </li>
+                                )
+                              ) : (
                                 <li
-                                  className={`pt-2 pb-2 ps-4  transition-all selection:bg-[#6c757d] ${
+                                  className={` transition-all selection:bg-[#6c757d] ${
                                     active === title
-                                      ? e.item === null
-                                        ? " hidden"
-                                        : "block"
-                                      : " hidden"
-                                  } transition-transform translate-x-5`}
+                                      ? title==="Tables"||title==="Forms"?null:"w-[100%] pt-2 pb-2 ps-3 "
+                                      : "h-0 overflow-hidden w-0"
+                                  }  translate-x-5`}
                                   key={e.id}
                                 >
                                   <Link to={`/${e.url}`}>
@@ -168,7 +231,9 @@ const Navbar = (probs) => {
                                           ? probs.setheadertitle("")
                                           : probs.setheadertitle(title);
                                         isMobile
-                                          ? probs.SetNavStyle("hidden")
+                                          ? probs.SetNavheadervisiblity(
+                                              "hidden"
+                                            )
                                           : "";
                                         e.item === "Vertical"
                                           ? probs.setdisplayreverse("")
@@ -188,7 +253,8 @@ const Navbar = (probs) => {
                                     </span>
                                   </Link>
                                 </li>
-                            ))}
+                              )
+                            )}
                           </ul>
                         </div>
                       </div>
@@ -198,7 +264,7 @@ const Navbar = (probs) => {
                 {contactdetailposter.map((e) => (
                   <div
                     className={`bg-[#ff589b] text-white pt-2 pb-2 mt-2 ms-1 me-1 ps-3 border-[3px] border-[#bb6788] rounded-lg ${
-                      isMobile ? "hidden" : probs.navstyle
+                      isMobile ? "hidden" : probs.navheadervisiblity
                     }`}
                     key={e.id}
                   >
