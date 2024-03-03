@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import AddAppointments from "./Appointments/AddAppointments";
 import AllAppointments from "./Appointments/AllAppointments";
@@ -32,14 +32,19 @@ import Pricing from "./Otherpages/Pricing";
 import PatientDetail from "./patients/PatientDetail";
 import { fadeIn, staggerContainer } from "../../utils/motion";
 import { motion } from "framer-motion";
-import Login from "./Otherpages/Login";
-import SignUp from "./Otherpages/SignUp";
 import Verifypatient from "./patients/Verifypatient";
 import Verifyappointment from "./Appointments/Verifyappointment";
 import Verifypayment from "./payments/VerifyPayment";
 import VerifyDoctor from "./Doctor/VerifyDoctor";
-
-const CombinedAlldata = ({ setloginmode }) => {
+import Login from "./Registration/Login";
+import SignUp from "./Registration/SignUp";
+import Accountdetails from "./useraccount/accountdetails";
+import Private, {
+  Private_Com_for_Admin,
+  Private_Com_for_Doc_Ad,
+} from "./private/Private";
+import ForgetPassword from "./Registration/ForgetPassword";
+const CombinedAlldata = () => {
   return (
     <motion.section
       variants={staggerContainer()}
@@ -49,52 +54,77 @@ const CombinedAlldata = ({ setloginmode }) => {
     >
       <motion.div variants={fadeIn("top", "spring", 1 * 0.5, 10)}>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/Addpatient" element={<Addpatient />} />
-          <Route path="/EditPatient" element={<EditPatient />} />
-          <Route path="/Allpatient" element={<Allpatient />} />
-          <Route path="/PatientDetail" element={<PatientDetail />} />
-          <Route path="/AddDoctor" element={<AddDoctor />} />
-          <Route path="/AllDoctors" element={<AllDoctor />} />
-          <Route path="/DoctorDetail" element={<DoctorDetails />} />
-          <Route path="/EditDoctor" element={<EditDoctor />} />
-          <Route path="/AddAppointment" element={<AddAppointments />} />
-          <Route path="/AllAppointment" element={<AllAppointments />} />
-          <Route path="/AppointmentDetail" element={<AppointmentDetail />} />
-          <Route path="/EditAppointment" element={<EditAppointment />} />
-          <Route path="/AddPayment" element={<AddPayement />} />
-          <Route path="/AllPayment" element={<AllPayment />} />
-          <Route path="/Paymentinvoice" element={<PaymentInvoice />} />
-          <Route path="/AddRoom" element={<AddRoom />} />
-          <Route path="/AllRoom" element={<AllRooms />} />
-          <Route path="/EditRoomAlllotment" element={<EditRoomAllotmment />} />
-          <Route path="/Tables" element={<Tables />} />
-          <Route path="/FloatChart" element={<FloatChart />} />
-          <Route path="/MorrisChart" element={<MorrisChart />} />
-          <Route path="/Form" element={<Forms />} />
-          <Route path="/FontAwesome" element={<FontAwesome />} />
-          <Route path="/Themify" element={<Themify />} />
-          <Route path="/404" element={<File_404 />} />
-          <Route path="/BlankPage" element={<BlankPage />} />
-          <Route path="/Faq" element={<Faq />} />
-          <Route path="/Invoice" element={<Invoice />} />
-          <Route path="/Pricing" element={<Pricing />} />
-          <Route
-            path="/Login"
-            element={<Login setloginmode={setloginmode} />}
-          />
-          <Route
-            path="/SignUp"
-            element={<SignUp setloginmode={setloginmode} />}
-          />
-          <Route path="/VerifyDoctor" element={<VerifyDoctor />} />
-          <Route path="/Verifypatient" element={<Verifypatient />} />
-          <Route
-            path="/Verifyappointment"
-            exact
-            element={<Verifyappointment />}
-          />
-          <Route path="/Verifypayment" element={<Verifypayment />} />
+          <Route element={<Private />}>
+            <>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/Patient/Addpatient" element={<Addpatient />} />
+              <Route path="/Patient/EditPatient" element={<EditPatient />} />
+              <Route path="/Patient/Allpatient" element={<Allpatient />} />
+              <Route
+                path="/Patient/PatientDetail"
+                element={<PatientDetail />}
+              />
+              <Route element={<Private_Com_for_Doc_Ad />}>
+                <Route path="/Doctor/AddDoctor" element={<AddDoctor />} />
+                <Route path="/Doctor/EditDoctor" element={<EditDoctor />} />
+                <Route
+                  path="/Verifyappointment"
+                  exact
+                  element={<Verifyappointment />}
+                />
+              </Route>
+              <Route path="/Doctor/AllDoctors" element={<AllDoctor />} />
+              <Route path="/Doctor/DoctorDetail" element={<DoctorDetails />} />
+              <Route
+                path="/Appointment/AddAppointment"
+                element={<AddAppointments />}
+              />
+              <Route
+                path="/Appointment/AllAppointment"
+                element={<AllAppointments />}
+              />
+              <Route
+                path="/Appointment/AppointmentDetail"
+                element={<AppointmentDetail />}
+              />
+              <Route
+                path="/Appointment/EditAppointment"
+                element={<EditAppointment />}
+              />
+              <Route path="/Payment/AddPayment" element={<AddPayement />} />
+              <Route path="/Payment/AllPayment" element={<AllPayment />} />
+              <Route
+                path="/Payment/Paymentinvoice"
+                element={<PaymentInvoice />}
+              />
+              <Route path="/Room/AddRoom" element={<AddRoom />} />
+              <Route path="/Room/AllRoom" element={<AllRooms />} />
+              <Route
+                path="/Room/EditRoomAlllotment"
+                element={<EditRoomAllotmment />}
+              />
+              <Route path="/Tables" element={<Tables />} />
+              <Route path="/FloatChart" element={<FloatChart />} />
+              <Route path="/MorrisChart" element={<MorrisChart />} />
+              <Route path="/Form" element={<Forms />} />
+              <Route path="/FontAwesome" element={<FontAwesome />} />
+              <Route path="/Themify" element={<Themify />} />
+              <Route path="/404" element={<File_404 />} />
+              <Route path="/BlankPage" element={<BlankPage />} />
+              <Route path="/Faq" element={<Faq />} />
+              <Route path="/Invoice" element={<Invoice />} />
+              <Route path="/Pricing" element={<Pricing />} />
+              <Route path="/user/account/detail" element={<Accountdetails />} />
+              <Route element={<Private_Com_for_Admin />}>
+                <Route path="/VerifyDoctor" element={<VerifyDoctor />} />
+                <Route path="/Verifypatient" element={<Verifypatient />} />
+                <Route path="/Verifypayment" element={<Verifypayment />} />
+              </Route>
+            </>
+          </Route>
+          <Route path="/Login" element={<Login />} />
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/forgot/password" element={<ForgetPassword />} />
         </Routes>
       </motion.div>
     </motion.section>

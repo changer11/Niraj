@@ -5,22 +5,22 @@ const navlinks = [
     toggle: "fa fa-angle-down",
     title: "Dashboard",
     collapseid: "item_1",
-    url:"/",
+    url: "/",
     collapseitem: [
       {
         id: 0,
         item: "Vertical",
-        url:"/",
+        url: "",
       },
       {
         id: 1,
         item: "Vertical Rtl",
-        url:"/",
+        url: "",
       },
       {
         id: 2,
         item: "Horizontal",
-        url:"/",
+        url: "",
       },
     ],
   },
@@ -30,27 +30,27 @@ const navlinks = [
     title: "Patient",
     toggle: "fa fa-angle-down",
     collapseid: "item_2",
-    url:null,
+    url: null,
     collapseitem: [
       {
         id: 0,
         item: "Add Patient",
-        url:"Addpatient"
+        url: "Patient/Addpatient",
       },
       {
         id: 1,
         item: "All Patient",
-        url:"Allpatient"
+        url: "Patient/Allpatient",
       },
       {
         id: 2,
         item: "Patient Details",
-        url:"PatientDetail"
+        url: "Patient/PatientDetail",
       },
       {
         id: 3,
         item: "Edit Patient",
-        url:"EditPatient"
+        url: "Patient/EditPatient",
       },
     ],
   },
@@ -58,29 +58,29 @@ const navlinks = [
     id: 2,
     icon: "fa fa-user",
     toggle: "fa fa-angle-down",
-    title: "Doctors",
+    title: "Doctor",
     collapseid: "item_3",
-    url:null,
+    url: null,
     collapseitem: [
       {
         id: 0,
         item: "Add Doctor",
-        url:"AddDoctor"
+        url: "Doctor/AddDoctor",
       },
       {
         id: 1,
         item: "All Doctors",
-        url:"AllDoctors"
+        url: "Doctor/AllDoctors",
       },
       {
         id: 2,
         item: "Doctor Details",
-        url:"DoctorDetail"
+        url: "Doctor/DoctorDetail",
       },
       {
         id: 3,
         item: "Edit Doctor",
-        url:"EditDoctor"
+        url: "Doctor/EditDoctor",
       },
     ],
   },
@@ -90,27 +90,27 @@ const navlinks = [
     title: "Appointments",
     toggle: "fa fa-angle-down",
     collapseid: "item_4",
-    url:null,
+    url: null,
     collapseitem: [
       {
         id: 0,
         item: "Add Appointment",
-        url:"AddAppointment"
+        url: "Appointment/AddAppointment",
       },
       {
         id: 1,
         item: "All Appointments",
-        url:"AllAppointment"
+        url: "Appointment/AllAppointment",
       },
       {
         id: 2,
         item: "Appointment Details",
-        url:"AppointmentDetail"
+        url: "Appointment/AppointmentDetail",
       },
       {
         id: 3,
         item: "Edit Appointment",
-        url:"EditAppointment" 
+        url: "Appointment/EditAppointment",
       },
     ],
   },
@@ -120,22 +120,22 @@ const navlinks = [
     title: "Payments",
     toggle: "fa fa-angle-down",
     collapseid: "item_5",
-    url:null,
+    url: null,
     collapseitem: [
       {
         id: 0,
         item: "Add Payment",
-        url:"AddPayment"
+        url: "Payment/AddPayment",
       },
       {
         id: 1,
         item: "All Payments",
-        url:"AllPayment" 
+        url: "Payment/AllPayment",
       },
       {
         id: 2,
         item: "Payment Invoice",
-        url:"Paymentinvoice"
+        url: "Payment/Paymentinvoice",
       },
     ],
   },
@@ -145,22 +145,22 @@ const navlinks = [
     toggle: "fa fa-angle-down",
     title: "Room Allotments",
     collapseid: "item_6",
-    url:null,
+    url: null,
     collapseitem: [
       {
         id: 0,
         item: "Add Room Allotment",
-        url:"AddRoom" 
+        url: "Room/AddRoom",
       },
       {
         id: 1,
         item: "All Rooms",
-        url:"AllRoom"
+        url: "Room/AllRoom",
       },
       {
         id: 2,
         item: "Edit Room Allotment",
-        url:"EditRoomAlllotment"
+        url: "Room/EditRoomAlllotment",
       },
     ],
   },
@@ -170,67 +170,67 @@ const navlinks = [
     title: "UI KIT",
     toggle: "fa fa-angle-down",
     collapseid: "item_7",
-    url:null,
+    url: null,
     collapseitem: [
       {
         id: 0,
         item: "Typography",
-        url:null
+        url: null,
       },
       {
         id: 2,
         item: "Buttons",
-        url:null
+        url: null,
       },
       {
         id: 3,
         item: "Cards",
-        url:null
+        url: null,
       },
       {
         id: 4,
         item: "Tabs",
-        url:null
+        url: null,
       },
       {
         id: 5,
         item: "Accordions",
-        url:null
+        url: null,
       },
       {
         id: 6,
         item: "Modals",
-        url:null
+        url: null,
       },
       {
         id: 7,
         item: "List & Media Object",
-        url:null
+        url: null,
       },
       {
         id: 8,
         item: "Grid",
-        url:null
+        url: null,
       },
       {
         id: 9,
         item: "Progress Bars",
-        url:null
+        url: null,
       },
       {
         id: 10,
         item: "Notification & Alerts",
-        url:null
+        url: null,
       },
       {
         id: 11,
         item: "Pagination",
-        url:null
+        url: null,
       },
       {
         id: 12,
         item: "Carousel",
-        url:null
+        url: null,
       },
     ],
   },
@@ -240,12 +240,12 @@ const navlinks = [
     title: "Tables",
     toggle: null,
     collapseid: "item_8",
-    url:"Tables",
+    url: "Tables",
     collapseitem: [
       {
         id: 0,
         item: null,
-        url:null,
+        url: null,
       },
     ],
   },
@@ -255,17 +255,17 @@ const navlinks = [
     toggle: "fa fa-angle-down",
     title: "Charts",
     collapseid: "item_9",
-    url:null,
+    url: null,
     collapseitem: [
       {
         id: 0,
         item: "Morris",
-        url:"MorrisChart"
+        url: "MorrisChart",
       },
       {
         id: 1,
         item: "Flot",
-        url:"FloatChart"
+        url: "FloatChart",
       },
     ],
   },
@@ -279,12 +279,12 @@ const navlinks = [
       {
         id: 0,
         item: "Google Maps",
-        url:"google"
+        url: "google",
       },
       {
         id: 1,
         item: "Vector Maps",
-        url:"vector"
+        url: "vector",
       },
     ],
   },
@@ -294,12 +294,12 @@ const navlinks = [
     toggle: null,
     title: "Forms",
     collapseid: "item_11",
-    url:"Form",
+    url: "Form",
     collapseitem: [
       {
         id: 0,
         item: null,
-        url:null
+        url: null,
       },
     ],
   },
@@ -309,17 +309,17 @@ const navlinks = [
     title: "Icons",
     toggle: "fa fa-angle-down",
     collapseid: "item_12",
-    url:null,
+    url: null,
     collapseitem: [
       {
         id: 0,
         item: "Font Awesome",
-        url:"FontAwesome" 
+        url: "FontAwesome",
       },
       {
         id: 1,
         item: "Themify",
-        url:"Themify"
+        url: "Themify",
       },
     ],
   },
@@ -329,60 +329,78 @@ const navlinks = [
     toggle: "fa fa-angle-down",
     title: "Other Pages",
     collapseid: "item_13",
-    url:null,
+    url: null,
     collapseitem: [
       {
         id: 0,
-        item: "Login",
-        url:"Login"
+        item: "404",
+        url: "404",
       },
       {
         id: 1,
-        item: "Sign Up",
-        url:"SignUp"
+        item: "Blank Page",
+        url: "BlankPage",
       },
       {
         id: 2,
-        item: "404",
-        url:"404"
+        item: "Pricing",
+        url: "Pricing",
       },
       {
         id: 3,
-        item: "Blank Page",
-        url:"BlankPage" 
+        item: "FAQ",
+        url: "Faq",
       },
       {
         id: 4,
-        item: "Pricing",
-        url:"Pricing"
-      },
-      {
-        id: 5,
-        item: "FAQ",
-        url:"Faq"
-      },
-      {
-        id: 6,
         item: "Invoice",
-        url:"Invoice" 
+        url: "Invoice",
+      },
+    ],
+  },
+  {
+    id: 12,
+    icon: "fa fa-sign-in",
+    title: "Login",
+    collapseid: "item_13",
+    url: "Login",
+    collapseitem: [
+      {
+        id: 0,
+        item: null,
+        url: null,
+      },
+    ],
+  },
+  {
+    id: 13,
+    url: "SignUp",
+    icon: "fa fa-user-plus",
+    title: "Sign Up",
+    collapseid: "item_14",
+    collapseitem: [
+      {
+        id: 0,
+        item: null,
+        url: null,
       },
     ],
   },
 ];
 const menu = [
   {
-    id:1,
+    id: 1,
     menu_icon: "fa fa-bars",
-    color:"bg-black text-white",
+    color: "bg-black text-white",
     zoom_icon: "fa fa-expand",
     search_icon: "fa fa-search",
     Notification_icon: "fa fa-bell",
     user_icon: "fa fa-user",
-  }
+  },
 ];
 const contactdetailposter = [
   {
-    id:1,
+    id: 1,
     header_icon: "fa fa-comments-o",
     header: "Need Help",
     ph_icon: "fa fa-phone",
@@ -394,11 +412,42 @@ const contactdetailposter = [
     title: "Creator :-",
   },
 ];
-const headernav=[
+const headernav = [
   {
-    id:1,
-    icon:"fa fa-home",
-    space:"/",
-  }
-]
-export { navlinks, contactdetailposter, menu,headernav};
+    id: 1,
+    icon: "fa fa-home",
+    space: "/",
+  },
+];
+const medicalRooms = [
+  "Emergency Room 1",
+  "Emergency Room 2",
+  "Emergency Room 3",
+  "Operating Room 1",
+  "Operating Room 2",
+  "Operating Room 3",
+  "ICU Room 1",
+  "ICU Room 2",
+  "ICU Room 3",
+  "Laboratory 1",
+  "Laboratory 2",
+  "Radiology 1",
+  "Radiology 2",
+  "Patient Room 1",
+  "Patient Room 2",
+  "Patient Room 3",
+  "Exam Room 1",
+  "Exam Room 2",
+  "Exam Room 3",
+  "Pharmacy",
+  "Waiting Room 1",
+  "Waiting Room 2",
+  "Waiting Room 3",
+  "Recovery Room 1",
+  "Recovery Room 2",
+  "Recovery Room 3",
+  "Consultation Room 1",
+  "Consultation Room 2",
+  "Consultation Room 3",
+];
+export { navlinks, contactdetailposter, menu, headernav, medicalRooms };

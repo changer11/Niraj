@@ -9,6 +9,5 @@ const firebaseConfig = {
   appId: "1:901377692184:web:16998adde10c618f16e96d",
   measurementId: "G-18YYG717BZ",
 };
-
 const App = initializeApp(firebaseConfig);
 export default App;

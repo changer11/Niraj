@@ -7,35 +7,40 @@ const Dashboard = () => {
   const [Totalappointment, settotalappointment] = useState("");
   const [doctor, setDoctor] = useState();
   const [totalpayment, settotalpayment] = useState(0);
+  const userdata = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
-    fetch("http://localhost:4000/patient")
-      .then((res) => res.json())
-      .then((data) => settotalpatient(data.length));
-    fetch("http://localhost:4000/Appointment")
-      .then((res) => res.json())
-      .then((data) => settotalappointment(data));
-    fetch("http://localhost:4000/payment")
-      .then((res) => res.json())
-      .then((data) => gettotalpayment(data));
-    fetch("http://localhost:4000/doctor")
-      .then((res) => res.json())
-      .then((data) => setDoctor(data));
-  });
+    const method = {
+      method: "GET",
+      headers: {
+        "auth-token": userdata.token,
+      },
+    };
+    if (userdata) {
+      fetch("http://localhost:4000/patient", method)
+        .then((res) => res.json())
+        .then((data) => settotalpatient(data.length));
+      fetch("http://localhost:4000/Appointment", method)
+        .then((res) => res.json())
+        .then((data) => settotalappointment(data));
+      fetch("http://localhost:4000/payment", method)
+        .then((res) => res.json())
+        .then((data) => gettotalpayment(data));
+      fetch("http://localhost:4000/doctor")
+        .then((res) => res.json())
+        .then((data) => setDoctor(data));
+    }
+  }, [userdata["token"]]);
   function gettotalpayment(data) {
     let total = 0;
     if (data != "") {
-      data.map((e) => {
-        total += e["payment"]["advancePaid"];
-        total -= e["payment"]["discount"];
-        if (e["service"]["cost"].length === 1) {
-          total += Number(e["service"]["cost"][0]);
-        } else {
-          e["service"]["cost"].map((item) => {
-            total += Number(item);
-          });
-        }
+      data.map(({ Services, payment }) => {
+        total += payment["advancePaid"];
+        Services.map(({ Cost }) => {
+          total += Number(Cost);
+        });
+        total = total - payment["discount"];
       });
-      let dollar = total / 80;
+      const dollar = total / 80;
       settotalpayment(dollar);
     }
   }

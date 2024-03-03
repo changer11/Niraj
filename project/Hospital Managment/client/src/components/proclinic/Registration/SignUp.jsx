@@ -1,10 +1,10 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import {
   getAuth,
   RecaptchaVerifier,
   signInWithPhoneNumber,
 } from "firebase/auth";
-import App from "./../Firebase";
+import App from "../Firebase";
 import { useNavigate } from "react-router-dom";
 const auth = getAuth(App);
 const SignUp = () => {
@@ -22,6 +22,14 @@ const SignUp = () => {
   const [verifyphonebtn, setverifyphonebtn] = useState("");
   const [phoneOTP, setphoneOTP] = useState("");
   const [verifyphonestatus, setverifyphonestatus] = useState("Otp Status");
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      if (user["token"]) {
+        Navigate("/");
+      }
+    }
+  });
   // firebase phonenumber otp verification
   const configure = () => {
     window.recaptchaVerifier = new RecaptchaVerifier(auth, "sign-in-button", {
@@ -63,21 +71,8 @@ const SignUp = () => {
     }
   };
   // form submit process
-  const HandleonSubmit = async (e) => {
+  const HandleonSubmit = (e) => {
     e.preventDefault();
-    const patientuser = {
-      Username,
-      password,
-      Email,
-      phone: Number(phone),
-    };
-    const Doctoruser = {
-      Username,
-      password,
-      Email,
-      Doctordegree,
-      phone: Number(phone),
-    };
     if (
       (Email != "",
       phone != "",
@@ -90,53 +85,9 @@ const SignUp = () => {
           if (password === ConfirmPassword) {
             if (Confirm) {
               if (usermode === "Patient") {
-                setloader(true);
-                const url = "http://localhost:4000/patientusers";
-                const result = await fetch(url, {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(patientuser),
-                });
-                const res_data = await result.json();
-                if (res_data) {
-                  setloader(false);
-                  if (res_data === "patient user succesfully added") {
-                    alert(res_data);
-                    setEmail("");
-                    setphone("");
-                    setPassword("");
-                    SetConfirmPassword("");
-                    setverifyphonestatus("");
-                    setUsername("");
-                    Navigate("/Login");
-                  } else {
-                    alert(res_data);
-                  }
-                }
+                patientSignup();
               } else {
-                setloader(true);
-                const url = "http://localhost:4000/doctorusers";
-                const result = await fetch(url, {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(Doctoruser),
-                });
-                const res_data = await result.json();
-                if (res_data) {
-                  setloader(false);
-                  if (res_data === "Doctor user succesfully added") {
-                    alert(res_data);
-                    setEmail("");
-                    setphone("");
-                    setPassword("");
-                    SetConfirmPassword("");
-                    setverifyphonestatus("");
-                    setUsername("");
-                    Navigate("/Login");
-                  } else {
-                    alert(res_data);
-                  }
-                }
+                doctorsignup();
               }
             } else {
               alert("Accept condition");
@@ -154,7 +105,70 @@ const SignUp = () => {
       alert("Fill the Data");
     }
   };
-
+  // this mehod calling in hanlde on submit function
+  const patientSignup = async () => {
+    const patientuser = {
+      Username,
+      password,
+      Email,
+      phone: Number(phone),
+    };
+    setloader(true);
+    const url = "http://localhost:4000/user/signup/patient";
+    const result = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(patientuser),
+    });
+    const res_data = await result.json();
+    if (res_data) {
+      setloader(false);
+      if (res_data.msg === "patient user succesfully added") {
+        alert(res_data.msg);
+        setEmail("");
+        setphone("");
+        setPassword("");
+        SetConfirmPassword("");
+        setverifyphonestatus("");
+        setUsername("");
+        Navigate("/Login");
+      } else {
+        alert(res_data);
+      }
+    }
+  };
+  const doctorsignup = async () => {
+    const Doctoruser = {
+      Username,
+      password,
+      Email,
+      Doctordegree,
+      phone: Number(phone),
+    };
+    setloader(true);
+    const url = "http://localhost:4000/user/signup/doctor";
+    const result = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(Doctoruser),
+    });
+    const res_data = await result.json();
+    if (res_data) {
+      setloader(false);
+      if (res_data.msg === "Doctor user succesfully added") {
+        alert(res_data.msg);
+        setEmail("");
+        setphone("");
+        setPassword("");
+        SetConfirmPassword("");
+        setverifyphonestatus("");
+        setUsername("");
+        Navigate("/Login");
+      } else {
+        alert(res_data);
+      }
+    }
+  };
   return (
     <div className="m-5 flex justify-center ">
       <div className="bg-[hsl(0,0%,100%)] p-3 max-sm:w-[100%] xl:w-[40%] relative">

@@ -3,15 +3,35 @@ import { menu, headernav } from "../constant";
 import { logodark } from "../assets";
 import { fadeIn, staggerContainer } from "../utils/motion";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 import "react-vertical-timeline-component/style.min.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-export const Header = (probs, { event }) => {
+import { headerdata } from "../store/headertitle/headerslice";
+import { useDispatch, useSelector } from "react-redux";
+export const Header = (probs) => {
   const [isMobile, setIsMobile] = useState(false);
+  const [pagetitle, setpagetitle] = useState("Quick Statistics");
+  const [pagesubtitle, setpagesubtitle] = useState("");
   const [userbox, setuserbox] = useState(false);
   const [usernotification, setusernotification] = useState(false);
   const [auth, setauth] = useState(false);
   const Navigate = useNavigate();
+  const location = useLocation();
+  const dispatch = useDispatch();
+  const [Alert, setalert] = useState({ AlertType: null, AlertData: null });
+  const data = useSelector((state) => state.headerdata);
+  useEffect(() => {
+    setTimeout(() => {
+      setalert({ AlertType: null, AlertData: null });
+    }, 3000);
+  }, [Alert["AlertType"]]);
+  useEffect(() => {
+    if (data.pagetitle) {
+      setpagetitle(data.pagetitle);
+      setpagesubtitle(data.pagesubTitle);
+    }
+  }, [data]);
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width:800px)");
     setIsMobile(mediaQuery.matches);
@@ -24,39 +44,56 @@ export const Header = (probs, { event }) => {
     };
   }, []);
   useEffect(() => {
-    let currentURL = window.location.href;
-    if (currentURL === "http://localhost:5173/VerifyDoctor") {
-      probs.settitle("Doctor");
-      probs.setheadertitle("Pending data");
-    } else if (currentURL === "http://localhost:5173/Verifypatient") {
-      probs.settitle("Patient");
-      probs.setheadertitle("Pending data");
-    } else if (currentURL === "http://localhost:5173/Verifypayment") {
-      probs.settitle("Payment");
-      probs.setheadertitle("Pending data");
-    } else if(currentURL === "http://localhost:5173/Verifyappointment") {
-      probs.settitle("Appointment");
-      probs.setheadertitle("Pending data");
+    if (location.pathname === "/VerifyDoctor") {
+      dispatch(
+        headerdata({
+          pagetitle: "Doctor",
+          pagesubTitle: "Pending Data",
+        })
+      );
+    } else if (location.pathname === "/Verifypatient") {
+      dispatch(
+        headerdata({
+          pagetitle: "Patient",
+          pagesubTitle: "Pending Data",
+        })
+      );
+    } else if (location.pathname === "/Verifypayment") {
+      dispatch(
+        headerdata({
+          pagetitle: "Payment",
+          pagesubTitle: "Pending Data",
+        })
+      );
+    } else if (location.pathname === "/Verifyappointment") {
+      dispatch(
+        headerdata({
+          pagetitle: "Appointment",
+          pagesubTitle: "Pending Data",
+        })
+      );
     }
-  });
-  const userdata = localStorage.getItem("users");
-  useMemo(() => {
+  }, [location]);
+  useEffect(() => {
+    const userdata = JSON.parse(localStorage.getItem("user"));
     if (userdata != null) {
-      setauth(true);
+      if (userdata["token"]) {
+        setauth(true);
+      }
     } else {
       setauth(false);
     }
-  }, [userdata]);
+  });
   const HandleOnLogout = () => {
-    localStorage.removeItem("users");
-    alert("Logged out");
+    setalert({ AlertType: "success", AlertData: " Succesfully Logged out" });
+    localStorage.removeItem("user");
     Navigate("/Login");
   };
 
   return (
     <>
-      <div className={`sticky top-0 z-30 ${probs.islogin}`}>
-        <div className={`${isMobile ? "w-[100%]" : "w-full"} `}>
+      <div className={`sticky top-0 z-30 `}>
+        <div className={`relative ${isMobile ? "w-[100%]" : "w-full"} `}>
           <div className="sticky z-30 top-0 bg-white">
             <motion.section
               variants={staggerContainer()}
@@ -133,8 +170,12 @@ export const Header = (probs, { event }) => {
                                     onClick={() => {
                                       Navigate("/Verifypatient");
                                       setusernotification(false);
-                                      probs.settitle("Patient");
-                                      probs.setheadertitle("Pending data");
+                                      dispatch(
+                                        headerdata({
+                                          pagetitle: "Patient",
+                                          pagesubTitle: "Pending Data",
+                                        })
+                                      );
                                     }}
                                   >
                                     New Patient Added
@@ -146,8 +187,12 @@ export const Header = (probs, { event }) => {
                                     onClick={() => {
                                       Navigate("/Verifypayment");
                                       setusernotification(false);
-                                      probs.settitle("Payment");
-                                      probs.setheadertitle("Pending data");
+                                      dispatch(
+                                        headerdata({
+                                          pagetitle: "Payment",
+                                          pagesubTitle: "Pending Data",
+                                        })
+                                      );
                                     }}
                                     className="cursor-pointer"
                                   >
@@ -161,8 +206,12 @@ export const Header = (probs, { event }) => {
                                     onClick={() => {
                                       Navigate("/Verifyappointment");
                                       setusernotification(false);
-                                      probs.settitle("appointment");
-                                      probs.setheadertitle("Pending data");
+                                      dispatch(
+                                        headerdata({
+                                          pagetitle: "Appointment",
+                                          pagesubTitle: "Pending Data",
+                                        })
+                                      );
                                     }}
                                   >
                                     Patient Appointment Booked
@@ -174,9 +223,13 @@ export const Header = (probs, { event }) => {
                                     className="cursor-pointer"
                                     onClick={() => {
                                       setusernotification(false);
-                                      Navigate("/DoctorApproval");
-                                      probs.settitle("Doctor");
-                                      // probs.setheadertitle("Pending data");
+                                      Navigate("/VerifyDoctor");
+                                      dispatch(
+                                        headerdata({
+                                          pagetitle: "Doctor",
+                                          pagesubTitle: "Pending Data",
+                                        })
+                                      );
                                     }}
                                   >
                                     Doctor pending list
@@ -227,9 +280,22 @@ export const Header = (probs, { event }) => {
                                 </h1>
                               </div>
                               <div className=" border-[hsl(0,6%,87%)] border-[2px]">
-                                <div className="p-3 ">
+                                <div
+                                  className="p-3 "
+                                  onClick={() => {
+                                    Navigate("/user/account/detail");
+                                    dispatch(
+                                      headerdata({
+                                        pagetitle: "User",
+                                        pagesubTitle: "AccountDetail",
+                                      })
+                                    );
+                                  }}
+                                >
                                   <i className="fa fa-gear me-2 text-[hsl(214,79%,58%)]"></i>
-                                  <span>Setting</span>
+                                  <span className="cursor-pointer">
+                                    Setting
+                                  </span>
                                 </div>
                                 <div className="p-3">
                                   <i className="fa fa-question-circle me-2  text-[hsl(326,76%,55%)]"></i>
@@ -263,7 +329,7 @@ export const Header = (probs, { event }) => {
                           isMobile ? "text-sm" : "text-[22px]"
                         } font-bold`}
                       >
-                        {probs.Title}
+                        {pagesubtitle}
                       </p>
                     </div>
                     <div
@@ -275,17 +341,10 @@ export const Header = (probs, { event }) => {
                         <i className={`${e.icon}`}></i>
                         <span
                           className={`p-2 ${
-                            probs.header_title === "" ? "hidden" : "inline"
-                          }`}
-                        >
-                          {e.space}
-                        </span>
-                        <span>{probs.header_title}</span>
-                        <span
-                          className={`p-2 ${
-                            probs.Title === "" &&
-                            probs.Title === "Tables" &&
-                            probs.Title === "Forms"
+                            pagetitle === "Tables" ||
+                            pagetitle === "Forms" ||
+                            pagetitle === "Sign Up" ||
+                            pagetitle === "Login"
                               ? "hidden"
                               : "inline"
                           }`}
@@ -293,17 +352,45 @@ export const Header = (probs, { event }) => {
                           {e.space}
                         </span>
                         <span className="">
-                          {probs.Title === "Quick Statistics"
-                            ? "Dashboard"
-                            : probs.Title === "Tables" &&
-                              probs.Title === "Forms"
-                            ? ""
-                            : probs.Title}
+                          {pagetitle === "Tables" ||
+                          pagetitle === "Forms" ||
+                          pagetitle === "Sign Up" ||
+                          pagetitle === "Login"
+                            ? null
+                            : pagetitle}
+                        </span>
+                        <span
+                          className={`p-2 ${
+                            pagesubtitle != "Quick Statistics"
+                              ? "inline"
+                              : "hidden"
+                          }`}
+                        >
+                          {e.space}
+                        </span>
+                        <span>
+                          {pagesubtitle != "Quick Statistics" && pagesubtitle}
                         </span>
                       </p>
                     </div>
                   </div>
                 ))}
+                {Alert["AlertData"] != null && (
+                  <div
+                    className={`alert alert-${
+                      Alert["AlertType"]
+                    } alert-dismissible absolute z-20  transition-all ${
+                      Alert ? "w-full " : "w-0 "
+                    }`}
+                  >
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="alert"
+                    ></button>
+                    <strong>{Alert["AlertData"]}</strong>
+                  </div>
+                )}
               </motion.div>
             </motion.section>
           </div>

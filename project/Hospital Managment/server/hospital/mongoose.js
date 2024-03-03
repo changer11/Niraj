@@ -1,22 +1,29 @@
 const mongoose = require("mongoose");
 async function MGConnection() {
-  const url =
-    "mongodb+srv://Niraj:Changer123@cluster0.tia72jr.mongodb.net/Hospital?retryWrites=true&w=majority";
-  mongoose.connection["Hospital"];
-  return await mongoose.connect(url, {
-    dbName: "Hospital",
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  try {
+    const url =
+      "mongodb+srv://Niraj:Changer123@cluster0.tia72jr.mongodb.net/Hospital?retryWrites=true&w=majority";
+    mongoose.connection["Hospital"];
+    return await mongoose.connect(url, {
+      dbName: "Hospital",
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+  } catch (e) {
+    console.log("database connection cut");
+  }
 }
 async function Appointment() {
   const Appointment_Schema = new mongoose.Schema({
-    PatientId: { type: String, required: true },
+    userid: { type: mongoose.Schema.ObjectId, required: true },
+    AppointmentId: { type: String, required: true, unique: true },
+    Doctorid: { type: String, required: true },
+    PatientID: { type: String, required: true },
     department: { type: String, required: true },
     doctorname: { type: String, required: true },
     date: { type: String, required: true },
     time: { type: String, required: true },
-    token: { type: String, required: true },
+    Token: { type: String, required: true },
     problem: { type: String, required: true },
     status: {
       type: String,
@@ -24,7 +31,6 @@ async function Appointment() {
       default: "Pending",
     },
   });
-
   const Appointment_Collection =
     (await MGConnection()).models.appointments ||
     (await MGConnection()).model("appointments", Appointment_Schema);
@@ -32,6 +38,8 @@ async function Appointment() {
 }
 async function Patient() {
   const patient_Schema = new mongoose.Schema({
+    userid: { type: mongoose.Schema.ObjectId, required: true },
+    PatientID: { type: String, unique: true, required: true },
     Name: { type: String, required: true },
     dob: { type: Date, required: true },
     age: { type: Number, required: true },
@@ -39,7 +47,10 @@ async function Patient() {
     email: { type: String, required: true },
     gender: { type: String, required: true },
     address: { type: String, required: true },
-    file: { type: String, required: true },
+    file: {
+      type: Object,
+      required: true,
+    },
     status: {
       type: String,
       enum: ["Pending", "Completed", "Cancelled"],
@@ -53,6 +64,8 @@ async function Patient() {
 }
 async function Doctor() {
   const Doctor_Schema = new mongoose.Schema({
+    userid: { type: mongoose.Schema.ObjectId, required: true },
+    Doctorid: { type: String, unique: true, required: true },
     username: { type: String, required: true },
     gender: { type: String, required: true },
     experience: { type: Number, required: true },
@@ -77,16 +90,20 @@ async function Doctor() {
 }
 async function payment() {
   const payment_Schema = new mongoose.Schema({
-    PatientID: { type: String, required: true },
+    userid: { type: mongoose.Schema.ObjectId, required: true },
+    PaymentID: { type: String, required: true, unique: true },
+    PatientID: { type: String, required: true, unique: true },
     patient_Name: { type: String, required: true },
     Department: { type: String, required: true },
-    Doctor_Name: { type: String, required: true },
+    Doctorid: { type: String, required: true, unique: true },
     Admission_Date: { type: Date, required: true },
     Discharge: { type: Date, required: true },
-    service: {
-      serviceName: { type: Object, required: true },
-      cost: { type: Object, required: true },
-    },
+    Services: [
+      {
+        Servicename: { type: String, required: true },
+        Cost: { type: String, required: true },
+      },
+    ],
     payment: {
       discount: { type: Number },
       type: { type: String, required: true },
@@ -106,6 +123,7 @@ async function payment() {
 }
 async function Room() {
   const Room_Schema = new mongoose.Schema({
+    userid: { type: mongoose.Schema.ObjectId, required: true },
     RoomNumber: { type: Number, required: true },
     RoomType: { type: String, required: true },
     Patient_Name: { type: String, required: true },
@@ -150,14 +168,25 @@ async function DoctorRegister() {
     (await MGConnection()).model("doctorusers", user_Schema);
   return user_Collection;
 }
-function Login() {
-  const login_schema = new mongoose.Schema({
-    Username: { type: String, required: true },
-    password: { type: String, required: true },
+async function getDoctorSpecialistdata() {
+  const specialistchema = new mongoose.Schema({
+    specialist: { type: Object, required: true },
   });
-  const login_collection = await(
-    MGConnection().models["login"] || mongoose.model("login", login_schema)
-  );
+  const Specialistcollection =
+    (await MGConnection()).models["doctorspecialist"] ||
+    (await MGConnection()).model("doctorspecialist", specialistchema);
+
+  return Specialistcollection;
+}
+async function getHospitalDepartment() {
+  const Departmentchema = new mongoose.Schema({
+    medicalDepartments: { type: Object, required: true },
+  });
+  const Departmentlistcollection =
+    (await MGConnection()).models["departmentlist"] ||
+    (await MGConnection()).model("departmentlist", Departmentchema);
+
+  return Departmentlistcollection;
 }
 module.exports = {
   Appointment,
@@ -167,4 +196,6 @@ module.exports = {
   Room,
   patientRegister,
   DoctorRegister,
+  getDoctorSpecialistdata,
+  getHospitalDepartment,
 };

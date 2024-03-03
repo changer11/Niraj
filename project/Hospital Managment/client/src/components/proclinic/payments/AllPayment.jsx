@@ -2,17 +2,25 @@ import { React, useEffect, useState } from "react";
 const AllPayment = () => {
   const [paymentlist, setpaymentlist] = useState("");
   useEffect(() => {
-    fetch("http://localhost:4000/payment")
+    const userdata = JSON.parse(localStorage.getItem("user"));
+    fetch("http://localhost:4000/payment", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": userdata.token,
+        "user-mode": userdata.usermode,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setpaymentlist(data));
   });
   return (
-    <div className={`sm:m-0 max-sm:p-2 ${
-      !paymentlist
-        ? "bg-[hsl(208,35%,13%)] h-[81.8vh]"
-        : "xl:m-5"
-    }`}>
-      {paymentlist.length!=0 ? (
+    <div
+      className={`sm:m-0 max-sm:p-2 ${
+        paymentlist.length === 0 ? "bg-[hsl(208,35%,13%)] h-[81.8vh]" : "xl:m-5"
+      }`}
+    >
+      {paymentlist.length != 0 ? (
         <div className="bg-[hsl(0,0%,100%)] p-3">
           <h1 className="text-[rgb(229,116,152)] h4 border-b border-spacing-3 pb-2">
             Payment List
@@ -68,10 +76,8 @@ const AllPayment = () => {
                         </td>
                         <td>{patient_Name}</td>
                         <td>{Doctor_Name}</td>
-                        <td>{service["serviceName"][0]}</td>
-                        <td>
-                          {payment["advancePaid"] + Number(service["cost"][0])}
-                        </td>
+                        <td>{null}</td>
+                        <td>{null}</td>
                         <td>{payment["discount"]}</td>
                         <td>
                           <span
@@ -153,7 +159,7 @@ const AllPayment = () => {
         </div>
       ) : (
         <div className="flex justify-center h-[80vh] items-center">
-          <div className="card w-[50%] p-3 text-center bg-primary text-white">
+          <div className="card w-[50%] p-3 text-center bg-[hsl(210,56%,25%)]  text-white">
             <p>No Data Available</p>
           </div>
         </div>
