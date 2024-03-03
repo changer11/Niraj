@@ -358,17 +358,19 @@
         typeSpeed: 100,
     });
     // nav onclick active class process start
-    var btnContainer = document.getElementById("nav");
+    let btnContainer = document.getElementById("nav");
     // Get all buttons with class="btn" inside the container
-    var btns = btnContainer.getElementsByClassName("click");
+    let btns = btnContainer.getElementsByClassName("click");
     // Loop through the buttons and add the active class to the current/clicked button
-    for (var i = 0; i < btns.length; i++) {
+    for (let i = 0; i < btns.length; i++) {
+        console.log(btns[i],i);
         btns[i].addEventListener("click", function () {
-            var current = document.getElementsByClassName("active");
+            console.log(btns[i],i);
+            let current = document.getElementsByClassName("active");
             if (current.length > 0) {
-                current[0].className = current[0].className.replace(" active", "");
+                current[0].className = current[0].className.replace("active", "");
             }
-            this.className += " active";
+            this.className += "active"
         });
     }
 // nav onclick active class process end

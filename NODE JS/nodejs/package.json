@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-note",
+  "version": "1.0.0",
+  "description": "node js tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/changer11/Changerpersonal.git"
+  },
+  "author": "changer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/changer11/Changerpersonal/issues"
+  },
+  "homepage": "https://github.com/changer11/Changerpersonal#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "express": "^4.18.2",
+    "mongo": "^0.1.0",
+    "mongodb": "^6.3.0",
+    "simple-node-logger": "^21.8.12"
+  }
+}
